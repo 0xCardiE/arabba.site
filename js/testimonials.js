@@ -2,8 +2,7 @@
   var TESTIMONIALS = [
     {
       text: 'Ovim putem Vam želim javiti da sam sve uspješno spojio i upravo Vam šaljem ovaj mail putem računala na kojem ste mi instalirali sve što je bilo potrebno. Zahvaljujem Vam se na suradnji i preporučam se za dalje.',
-      name: 'Cvetan Pelčić',
-      company: 'Klijent'
+      name: 'Cvetan Pelčić'
     },
     {
       text: 'U redakciji primamo na stotine najava događanja i reporta te se tu nađe i dosta virusa. Uz Arabba servis svaki put riješim nastale probleme te ga svakom preporučujem.',
@@ -13,38 +12,31 @@
     },
     {
       text: 'Gospodin Blažeković spasio mi je notebook — ujutro donijet, poslijepodne opet sve radilo. Još jednom veliko hvala.',
-      name: 'Sonja',
-      company: 'Google recenzija'
+      name: 'Sonja'
     },
     {
       text: 'Super usluga, odnio sam subotom i isti dan je bilo popravljeno. Preporuke.',
-      name: 'Sven Marenković',
-      company: 'Google recenzija'
+      name: 'Sven Marenković'
     },
     {
       text: 'Super zadovoljna!',
-      name: 'Marina Gulin',
-      company: 'Google recenzija'
+      name: 'Marina Gulin'
     },
     {
       text: 'Otključao laptop sa zaboravljenom šifrom u par sati bez problema. Sve pohvale za stručnost.',
-      name: 'Robo 1788',
-      company: 'Google recenzija'
+      name: 'Robo 1788'
     },
     {
       text: 'Vrlo profesionalno, brzo i po povoljnoj cijeni. Sve preporuke!',
-      name: 'Sara Barisic',
-      company: 'Google recenzija'
+      name: 'Sara Barisic'
     },
     {
       text: 'Koristim usluge gosp. Blažekovića godinama i imam samo riječi hvale. Brza intervencija, profesionalnost i dugogodišnje iskustvo.',
-      name: 'Igor Ganić',
-      company: 'Google recenzija'
+      name: 'Igor Ganić'
     },
     {
       text: 'Odlična usluga, brza intervencija i realizacija popravka. Problem riješen u vrlo kratkom roku. Preporučujem!',
-      name: 'Korana Stojčić',
-      company: 'Google recenzija'
+      name: 'Korana Stojčić'
     }
   ];
 
@@ -55,10 +47,12 @@
     els.text.textContent = testimonial.text;
     els.name.textContent = testimonial.name;
 
-    if (testimonial.url) {
+    if (testimonial.url && testimonial.company) {
       els.company.innerHTML = '<a href="' + testimonial.url + '">' + testimonial.company + '</a>';
+      els.companyField.style.display = '';
     } else {
-      els.company.innerHTML = '<span>' + testimonial.company + '</span>';
+      els.company.innerHTML = '';
+      els.companyField.style.display = 'none';
     }
   }
 
@@ -72,6 +66,7 @@
       text: block.querySelector('.views-field-body .field-content p'),
       name: block.querySelector('.views-field-title .field-content'),
       company: block.querySelector('.views-field-field-company-link .field-content'),
+      companyField: block.querySelector('.views-field-field-company-link'),
       container: block.querySelector('.view-content')
     };
 
