@@ -45,7 +45,7 @@ and (max-width :480px){#block-block-7,#block-views-testimonial-block,#block-view
 
 /* Service page expanded content */
 .node-page.service-page .service-intro{margin-bottom:1em;}
-.node-page.service-page .service-details{clear:both;width:100%;padding-top:0.5em;}
+.node-page.service-page .service-details{clear:both;width:100%;padding-top:0.5em;padding-bottom:2.5rem;}
 .node-page.service-page .service-details h2{font-size:22px;color:#605D5B;margin:1.4em 0 0.6em;}
 .node-page.service-page .service-details h3{font-size:17px;color:#605D5B;margin:1.2em 0 0.4em;font-family:Arial,Helvetica,sans-serif;}
 .node-page.service-page .service-details ul,.node-page.service-page .service-details ol{margin:0 0 1em 1.2em;padding:0;}
@@ -70,6 +70,68 @@ and (max-width :480px){#block-block-7,#block-views-testimonial-block,#block-view
 .sticky-call-label{font-weight:normal;opacity:0.95;}
 .sticky-call-number{letter-spacing:0.02em;}
 body{padding-bottom:52px;}
+}
+
+/* Desktop layout refresh */
+@media only screen and (min-width:980px){
+#zone-branding .region-branding-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:nowrap;}
+.branding-data{float:none;flex:0 0 auto;}
+.logo-img{float:none;margin-top:0;margin-right:0;}
+#block-views-top-block-front-block{float:none;margin:0;flex:1 1 auto;min-width:0;}
+.view-id-top_block_front .view-content{display:flex;justify-content:flex-end;gap:8px;flex-wrap:nowrap;}
+.view-id-top_block_front .views-row{float:none;width:220px;flex:0 0 220px;min-width:0;display:grid;grid-template-columns:36px 1fr;column-gap:8px;align-items:start;padding:8px 10px;border-radius:8px;transition:background .2s ease;position:relative;cursor:pointer;}
+.view-id-top_block_front .views-field-title a::after{content:'';position:absolute;inset:0;z-index:1;}
+.view-id-top_block_front .views-field-field-top-icon a{pointer-events:none;}
+.view-id-top_block_front .views-field-field-top-icon{float:none;padding:0;height:auto;margin:0;grid-row:1 / span 2;align-self:center;}
+.view-id-top_block_front .views-field-title{grid-column:2;line-height:1.25;}
+.view-id-top_block_front .views-field-body{grid-column:2;}
+.view-id-top_block_front .views-field-title a{font-size:16px;}
+.view-id-top_block_front .views-field-body{font-size:11px;line-height:1.35;}
+.view-id-top_block_front .views-row.is-active,.view-id-top_block_front .views-row:hover{background:rgba(253,105,49,0.08);}
+.view-id-top_block_front .views-row.is-active .views-field-title a{font-weight:700;text-decoration:underline;text-underline-offset:3px;}
+.context-servis-računala .view-id-top_block_front .views-row-1,.context-zaštita-računala-antivirusna-antidialer-antispyware-antispam .view-id-top_block_front .views-row-1,.context-čiščenje-optimiziranje-i-ubrzavanje-računala .view-id-top_block_front .views-row-1,.context-servis-i-popravak-laptopa-rijeka .view-id-top_block_front .views-row-2,.context-servis-hp-laptopa-rijeka .view-id-top_block_front .views-row-2,.context-servis-asus-laptopa-rijeka .view-id-top_block_front .views-row-2,.context-msi-servis-laptopa-rijeka .view-id-top_block_front .views-row-2,.context-apple-servis-rijeka .view-id-top_block_front .views-row-2,.context-servis-acer-laptopa-rijeka .view-id-top_block_front .views-row-2,.context-servis-toshiba-laptopa-rijeka .view-id-top_block_front .views-row-2,.context-servis-lenovo-laptopa-rijeka .view-id-top_block_front .views-row-2,.context-ugovorno-održavanje-računala .view-id-top_block_front .views-row-3{background:rgba(253,105,49,0.1);}
+.context-servis-računala .view-id-top_block_front .views-row-1 .views-field-title a,.context-zaštita-računala-antivirusna-antidialer-antispyware-antispam .view-id-top_block_front .views-row-1 .views-field-title a,.context-čiščenje-optimiziranje-i-ubrzavanje-računala .view-id-top_block_front .views-row-1 .views-field-title a,.context-servis-i-popravak-laptopa-rijeka .view-id-top_block_front .views-row-2 .views-field-title a,.context-servis-hp-laptopa-rijeka .view-id-top_block_front .views-row-2 .views-field-title a,.context-servis-asus-laptopa-rijeka .view-id-top_block_front .views-row-2 .views-field-title a,.context-msi-servis-laptopa-rijeka .view-id-top_block_front .views-row-2 .views-field-title a,.context-apple-servis-rijeka .view-id-top_block_front .views-row-2 .views-field-title a,.context-servis-acer-laptopa-rijeka .view-id-top_block_front .views-row-2 .views-field-title a,.context-servis-toshiba-laptopa-rijeka .view-id-top_block_front .views-row-2 .views-field-title a,.context-servis-lenovo-laptopa-rijeka .view-id-top_block_front .views-row-2 .views-field-title a,.context-ugovorno-održavanje-računala .view-id-top_block_front .views-row-3 .views-field-title a{font-weight:700;text-decoration:underline;text-underline-offset:3px;}
+.not-front #zone-header-wrapper,body:not(.front) #zone-header-wrapper{padding:28px 0 32px;}
+.not-front .region-header-first-inner:has(#block-views-contact-block-block),body:not(.front) .region-header-first-inner:has(#block-views-contact-block-block){display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,0.95fr);gap:28px;align-items:center;}
+#block-views-contact-block-block{width:auto;float:none;display:block;margin:0;}
+#block-views-contact-block-block .view-contact-block .view-content{background:rgba(255,255,255,0.92);border-radius:12px;padding:24px 28px 20px;box-shadow:0 2px 14px rgba(0,0,0,0.07);}
+#block-views-contact-block-block h2{margin-bottom:10px;}
+#block-views-contact-block-block .message{display:block;margin-bottom:14px;}
+#block-views-contact-block-block .form-button a{margin-top:4px;}
+#block-views-contact-block-block .form-second-row{line-height:1.5;margin-top:10px;}
+#block-views-testimonial-block{width:auto;float:none;display:block;margin:0;padding:0;background:none !important;}
+.hero-testimonial-aside{display:flex;flex-direction:column;align-items:center;gap:12px;}
+.hero-illustration{width:210px;height:170px;background-repeat:no-repeat;background-position:center;background-size:contain;opacity:0.95;}
+.context-servis-i-popravak-laptopa-rijeka .hero-illustration,.context-servis-hp-laptopa-rijeka .hero-illustration,.context-servis-asus-laptopa-rijeka .hero-illustration,.context-msi-servis-laptopa-rijeka .hero-illustration,.context-apple-servis-rijeka .hero-illustration,.context-servis-acer-laptopa-rijeka .hero-illustration,.context-servis-toshiba-laptopa-rijeka .hero-illustration,.context-servis-lenovo-laptopa-rijeka .hero-illustration{background-image:url(../images/laptop_large.png);}
+.context-servis-računala .hero-illustration,.context-zaštita-računala-antivirusna-antidialer-antispyware-antispam .hero-illustration,.context-čiščenje-optimiziranje-i-ubrzavanje-računala .hero-illustration,.context-gdje-smo .hero-illustration,.context-o-nama .hero-illustration{background-image:url(../images/servis_large.png);}
+.context-ugovorno-održavanje-računala .hero-illustration{background-image:url(../images/sistem_large.png);}
+.hero-testimonial-card{width:100%;max-width:340px;background:#fff;border-radius:12px;padding:22px 24px 18px;box-shadow:0 4px 18px rgba(0,0,0,0.08);}
+#block-views-testimonial-block .view-id-testimonial{background:none;margin:0;padding:0;}
+#block-views-testimonial-block .views-field-body{font-size:16px;line-height:1.45;color:#666;}
+#block-views-testimonial-block .views-field-body .field-content p{min-height:72px;margin-bottom:12px;}
+#block-views-testimonial-block .views-field-title{font-size:16px;}
+#block-views-testimonial-block .views-field-field-company-link a{font-size:13px;}
+.node-page.service-page > .content{display:grid;grid-template-columns:38% 62%;column-gap:28px;align-items:start;}
+.node-page.service-page > .content > .field-name-body,.node-page.service-page > .content > .field-name-body > .field-items,.node-page.service-page > .content > .field-name-body > .field-items > .field-item{display:contents;}
+.node-page.service-page .field-name-field-top-icon{grid-column:1;grid-row:1;float:none;width:auto;margin:0;align-self:center;}
+.node-page.service-page .field-name-field-top-icon img{border-radius:8px;box-shadow:0 4px 18px rgba(0,0,0,0.12);}
+.node-page.service-page .service-intro{grid-column:2;grid-row:1;align-self:center;padding-left:0;margin-bottom:0;}
+.node-page.service-page .service-intro p:last-child{margin-bottom:0;}
+.node-page.service-page .service-details{grid-column:1 / -1;grid-row:2;clear:none;width:100%;max-width:720px;margin:2rem auto 0;padding:1.5rem 0 3rem;border-top:1px solid #e5e5e5;}
+.node-page.service-page .field-name-body .field-items{padding-left:0;}
+.node-page.service-page .service-details > ul{display:grid;grid-template-columns:1fr 1fr;gap:0.45rem 1.75rem;margin-left:0;padding-left:1.1em;}
+.node-page.service-page .service-details > ol.service-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;list-style:none;margin:0.75rem 0 0;padding:0;counter-reset:service-step;}
+.node-page.service-page .service-details > ol.service-steps > li{margin:0;padding:16px 14px 14px;background:#fff;border:1px solid #e8e8e8;border-radius:10px;counter-increment:service-step;position:relative;}
+.node-page.service-page .service-details > ol.service-steps > li::before{content:counter(service-step);display:block;font-size:26px;font-weight:700;line-height:1;color:#FD6931;margin-bottom:8px;}
+.node-page.service-page .service-details > ol.service-steps > li strong{display:block;margin-bottom:4px;color:#605D5B;}
+.node-page.service-page .service-faq{display:grid;grid-template-columns:1fr 1fr;gap:18px 28px;margin-top:2rem;padding-top:0;border-top:none;}
+.node-page.service-page .service-faq > h2{grid-column:1 / -1;margin:0 0 0.25rem;}
+.node-page.service-page .service-faq .faq-item{background:#fafafa;border:1px solid #ececec;border-radius:8px;padding:14px 16px;}
+.node-page.service-page .service-faq .faq-item h3{margin:0 0 0.35rem;font-size:16px;}
+.node-page.service-page .service-faq .faq-item p{margin:0;font-size:14px;line-height:1.5;color:#666;}
+#block-views-testimonial-block .views-field-title{text-align:right;}
+#block-views-testimonial-block .views-field-field-company-link{text-align:right;}
+h1#page-title{margin-bottom:1.25rem;}
 }
 
 /* --- css/css_1CaoCuqGe4B4ITWBXcfNXrKntc5Mh6q6YRluVwAyNgg.css --- */

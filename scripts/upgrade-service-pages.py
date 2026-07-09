@@ -18,10 +18,10 @@ SKIP_LINK = re.compile(
 )
 
 COMMON_PROCESS = """<ol>
-<li><strong>Kontakt</strong> — nazovite, pošaljite poruku ili donesite uređaj u servis.</li>
-<li><strong>Dijagnostika</strong> — utvrdimo problem i javimo procjenu cijene.</li>
-<li><strong>Popravak ili optimizacija</strong> — nakon vašeg odobrenja obavljamo dogovoreni rad.</li>
-<li><strong>Testiranje i predaja</strong> — provjerimo da sve radi prije vraćanja uređaja.</li>
+<li><strong>Kontakt</strong> nazovite, pošaljite poruku ili donesite uređaj u servis.</li>
+<li><strong>Dijagnostika</strong> utvrdimo problem i javimo procjenu cijene.</li>
+<li><strong>Popravak ili optimizacija</strong> nakon vašeg odobrenja obavljamo dogovoreni rad.</li>
+<li><strong>Testiranje i predaja</strong> provjerimo da sve radi prije vraćanja uređaja.</li>
 </ol>"""
 
 
