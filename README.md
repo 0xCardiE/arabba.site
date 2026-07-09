@@ -52,7 +52,7 @@ Then visit [http://localhost:8000](http://localhost:8000).
 
 ### Deployment notes
 
-Production uses clean URLs (e.g. `/servis-racunala`). When deploying from this repo, configure your host to map those paths to the matching `.html` files or add redirect rules.
+Pages use `.html` URLs (e.g. `/servis-racunala.html`). Deploy the files as-is to any static host — no URL rewriting or redirects required.
 
 ## License
 
