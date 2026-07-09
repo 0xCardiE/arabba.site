@@ -402,12 +402,14 @@ def add_json_ld(content, config, basename):
 
 
 def update_hero_message(content, message):
-    return re.sub(
+    for pattern in (
         r'(<span class="message">)[^<]*(</span>)',
-        rf"\1{message}\2",
-        content,
-        count=1,
-    )
+        r'(<p class="message">)[^<]*(</p>)',
+    ):
+        new_content, count = re.subn(pattern, rf"\1{message}\2", content, count=1)
+        if count:
+            return new_content
+    return content
 
 
 def fix_h2_rijeka(content):
