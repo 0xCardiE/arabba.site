@@ -74,7 +74,7 @@
       return;
     }
 
-    var index = 0;
+    var index = Math.floor(Math.random() * TESTIMONIALS.length);
 
     render(els, TESTIMONIALS[index]);
 

@@ -162,7 +162,7 @@ PAGE_SEO = {
         "title": "Servis HP laptopa - Rijeka | ARABBA d.o.o.",
         "desc": "Servis HP laptopa u Rijeci — Pavilion, ProBook, EliteBook. Dijagnostika, čišćenje pregrijavanja, zamjena dijelova. Tel: 051 642 291.",
         "og_title": "Servis HP laptopa - Rijeka",
-        "h2": "Servis HP laptopa u Rijeki",
+        "h2": "Servis HP laptopa u Rijeci",
         "hero_alt": "Servis HP laptopa u Rijeki",
     },
     "servis-asus-laptopa-rijeka.html": {
