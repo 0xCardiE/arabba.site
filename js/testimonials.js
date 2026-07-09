@@ -11,7 +11,7 @@
       url: 'http://www.izlasci.net'
     },
     {
-      text: 'Gospodin Blažeković spasio mi je notebook — ujutro donijet, poslijepodne opet sve radilo. Još jednom veliko hvala.',
+      text: 'Gospodin Blažeković spasio mi je notebook. Ujutro donijet, poslijepodne opet sve radilo. Još jednom veliko hvala.',
       name: 'Sonja'
     },
     {

@@ -1,6 +1,6 @@
 # arabba.site
 
-Static website source for [ARABBA d.o.o.](https://arabba.hr/) — a computer repair and IT services company based in Rijeka, Croatia.
+Static website source for [ARABBA d.o.o.](https://arabba.hr/), a computer repair and IT services company based in Rijeka, Croatia.
 
 **Live site:** [https://arabba.hr/](https://arabba.hr/)
 
@@ -28,7 +28,7 @@ ARABBA d.o.o. has provided electronics repair and computer services in Rijeka si
 
 ## Repository
 
-Static HTML site for [arabba.hr](https://arabba.hr/). No build step required — deploy the files as-is to any static host.
+Static HTML site for [arabba.hr](https://arabba.hr/). No build step required, deploy the files as-is to any static host.
 
 ```
 .
@@ -52,7 +52,7 @@ Then visit [http://localhost:8000](http://localhost:8000).
 
 ### Deployment notes
 
-Pages use `.html` URLs (e.g. `/servis-racunala.html`). Deploy the files as-is to any static host — no URL rewriting or redirects required.
+Pages use `.html` URLs (e.g. `/servis-racunala.html`). Deploy the files as-is to any static host, no URL rewriting or redirects required.
 
 ## License
 

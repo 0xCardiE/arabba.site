@@ -20,9 +20,9 @@ OG_LOCALE = "hr_HR"
 OG_IMAGE = "images/og-share.png"
 OG_IMAGE_WIDTH = 1200
 OG_IMAGE_HEIGHT = 630
-OG_IMAGE_ALT = "ARABBA d.o.o. — servis računala i laptopa, Rijeka"
+OG_IMAGE_ALT = "ARABBA d.o.o., servis računala i laptopa, Rijeka"
 TWITTER_CARD = "summary_large_image"
-LOGO_ALT = "ARABBA d.o.o. — servis računala Rijeka"
+LOGO_ALT = "ARABBA d.o.o., servis računala Rijeka"
 
 
 def absolute_page_url(basename):
@@ -76,7 +76,7 @@ LOCAL_BUSINESS_JSON = f"""  <script type="application/ld+json">
     "@context": "https://schema.org",
     "@type": "ComputerRepair",
     "name": "ARABBA d.o.o.",
-    "description": "Servis računala i laptopa u Rijeci — PC i Mac. Dijagnostika, popravak, čišćenje virusa i spašavanje podataka.",
+    "description": "Servis računala i laptopa u Rijeci: PC i Mac. Dijagnostika, popravak, čišćenje virusa i spašavanje podataka.",
     "url": "{absolute_page_url("index.html")}",
     "logo": "{absolute_asset_url("images/logo.png")}",
     "image": "{absolute_asset_url("images/logo.png")}",
@@ -118,20 +118,20 @@ FOOTER_BRAND_LINKS_RE = re.compile(
 PAGE_SEO = {
     "index.html": {
         "title": "Servis Računala i Laptopa - Rijeka | ARABBA d.o.o.",
-        "desc": "Servis računala i laptopa u Rijeci — PC i Mac. Dijagnostika, popravak, čišćenje virusa i spašavanje podataka. ARABBA d.o.o. od 1995. Nazovite!",
+        "desc": "Servis računala i laptopa u Rijeci: PC i Mac. Dijagnostika, popravak, čišćenje virusa i spašavanje podataka. ARABBA d.o.o. od 1995. Nazovite!",
         "og_title": "Servis Računala i Laptopa - Rijeka | ARABBA d.o.o.",
         "h2": None,
     },
     "servis-računala.html": {
         "title": "Servis računala - Rijeka | ARABBA d.o.o.",
-        "desc": "Servis računala u Rijeci — dijagnostika, zamjena komponenti i instalacija softvera. PC i Mac. Brza procjena i popravak. Tel: 051 642 291.",
+        "desc": "Servis računala u Rijeci: dijagnostika, zamjena komponenti i instalacija softvera. PC i Mac. Brza procjena i popravak. Tel: 051 642 291.",
         "og_title": "Servis računala - Rijeka",
         "h2": "Servis računala u Rijeci, brzo i pouzdano",
         "hero_alt": "Servis računala u Rijeci",
     },
     "servis-i-popravak-laptopa-rijeka.html": {
         "title": "Servis i popravak Laptopa - Rijeka | ARABBA d.o.o.",
-        "desc": "Servis i popravak laptopa u Rijeci — zamjena dijelova, čišćenje, reinstalacija OS-a i spašavanje podataka. PC i Mac. Zatražite procjenu!",
+        "desc": "Servis i popravak laptopa u Rijeci: zamjena dijelova, čišćenje, reinstalacija OS-a i spašavanje podataka. PC i Mac. Zatražite procjenu!",
         "og_title": "Servis i popravak Laptopa - Rijeka",
         "h2": "Servis laptopa u Rijeci, svi modeli",
         "hero_alt": "Servis laptopa u Rijeki",
@@ -139,102 +139,102 @@ PAGE_SEO = {
     },
     "ugovorno-održavanje-računala.html": {
         "title": "Ugovorno održavanje računala Rijeka | ARABBA d.o.o.",
-        "desc": "Ugovorno održavanje računala i servera u Rijeci — redoviti pregledi, nadzor na daljinu i brza intervencija. Smanjite rizik od kvarova.",
+        "desc": "Ugovorno održavanje računala i servera u Rijeci: redoviti pregledi, nadzor na daljinu i brza intervencija. Smanjite rizik od kvarova.",
         "og_title": "Ugovorno održavanje računala Rijeka",
         "h2": "Ugovorno održavanje računala u Rijeci",
         "hero_alt": "Ugovorno održavanje računala u Rijeci",
     },
     "čišćenje-optimiziranje-i-ubrzavanje-računala.html": {
         "title": "Čiščenje, optimiziranje i ubrzavanje računala | ARABBA d.o.o.",
-        "desc": "Čišćenje i optimiziranje računala u Rijeci — ubrzanje sporog PC-a, otprašivanje, nadogradnja i reinstalacija Windowsa. Zatražite procjenu!",
+        "desc": "Čišćenje i optimiziranje računala u Rijeci: ubrzanje sporog PC-a, otprašivanje, nadogradnja i reinstalacija Windowsa. Zatražite procjenu!",
         "og_title": "Čiščenje, optimiziranje i ubrzavanje računala",
         "h2": "Ubrzavanje i optimizacija računala u Rijeci",
         "hero_alt": "Optimiziranje i ubrzavanje računala u Rijeci",
     },
     "zaštita-računala-antivirusna-antidialer-antispyware-antispam.html": {
         "title": "Zaštita računala Rijeka | ARABBA d.o.o.",
-        "desc": "Zaštita računala u Rijeci — instalacija antivirusa, antispywarea, firewalla i backup rješenja. Sigurnost vaših podataka. Nazovite nas!",
+        "desc": "Zaštita računala u Rijeci: instalacija antivirusa, antispywarea, firewalla i backup rješenja. Sigurnost vaših podataka. Nazovite nas!",
         "og_title": "Zaštita računala Rijeka",
         "h2": "Zaštita računala u Rijeci, antivirus i firewall",
         "hero_alt": "Zaštita računala od virusa u Rijeci",
     },
     "servis-hp-laptopa-rijeka.html": {
         "title": "Servis HP laptopa - Rijeka | ARABBA d.o.o.",
-        "desc": "Servis HP laptopa u Rijeci — Pavilion, ProBook, EliteBook. Dijagnostika, čišćenje pregrijavanja, zamjena dijelova. Tel: 051 642 291.",
+        "desc": "Servis HP laptopa u Rijeci: Pavilion, ProBook, EliteBook. Dijagnostika, čišćenje pregrijavanja, zamjena dijelova. Tel: 051 642 291.",
         "og_title": "Servis HP laptopa - Rijeka",
         "h2": "Servis HP laptopa u Rijeci",
         "hero_alt": "Servis HP laptopa u Rijeki",
     },
     "servis-asus-laptopa-rijeka.html": {
         "title": "Servis ASUS laptopa - Rijeka | ARABBA d.o.o.",
-        "desc": "Servis ASUS laptopa u Rijeci — serije N, S, K, G, U i X. Dijagnostika, čišćenje, nadogradnja i popravak. Zatražite besplatnu procjenu!",
+        "desc": "Servis ASUS laptopa u Rijeci: serije N, S, K, G, U i X. Dijagnostika, čišćenje, nadogradnja i popravak. Zatražite besplatnu procjenu!",
         "og_title": "Servis ASUS laptopa - Rijeka",
         "h2": "Servis ASUS laptopa u Rijeki",
         "hero_alt": "Servis ASUS laptopa u Rijeki",
     },
     "servis-acer-laptopa-rijeka.html": {
         "title": "Servis Acer Laptopa - Rijeka | ARABBA d.o.o.",
-        "desc": "Servis Acer laptopa u Rijeci — Aspire, TravelMate, Extensa i Iconia. Dijagnostika, zamjena dijelova i spašavanje podataka. Nazovite nas!",
+        "desc": "Servis Acer laptopa u Rijeci: Aspire, TravelMate, Extensa i Iconia. Dijagnostika, zamjena dijelova i spašavanje podataka. Nazovite nas!",
         "og_title": "Servis Acer Laptopa - Rijeka",
         "h2": "Servis Acer laptopa u Rijeki",
         "hero_alt": "Servis Acer laptopa u Rijeki",
     },
     "servis-lenovo-laptopa-rijeka.html": {
         "title": "Servis Lenovo laptopa - Rijeka | ARABBA d.o.o.",
-        "desc": "Servis Lenovo laptopa u Rijeci — ThinkPad i ostali modeli. Dijagnostika, čišćenje, zamjena dijelova i spašavanje podataka. Tel: 051 642 291.",
+        "desc": "Servis Lenovo laptopa u Rijeci: ThinkPad i ostali modeli. Dijagnostika, čišćenje, zamjena dijelova i spašavanje podataka. Tel: 051 642 291.",
         "og_title": "Servis Lenovo laptopa - Rijeka",
         "h2": "Servis Lenovo laptopa u Rijeki",
         "hero_alt": "Servis Lenovo laptopa u Rijeki",
     },
     "servis-toshiba-laptopa-rijeka.html": {
         "title": "Servis Toshiba laptopa - Rijeka | ARABBA d.o.o.",
-        "desc": "Servis Toshiba laptopa u Rijeci — Satellite, Portégé, Tecra i Qosmio. Brza dijagnostika, popravak i zamjena dijelova. Zatražite procjenu!",
+        "desc": "Servis Toshiba laptopa u Rijeci: Satellite, Portégé, Tecra i Qosmio. Brza dijagnostika, popravak i zamjena dijelova. Zatražite procjenu!",
         "og_title": "Servis Toshiba laptopa - Rijeka",
         "h2": "Servis Toshiba laptopa u Rijeki",
         "hero_alt": "Servis Toshiba laptopa u Rijeki",
     },
     "msi-servis-laptopa-rijeka.html": {
         "title": "MSI servis laptopa - Rijeka | ARABBA d.o.o.",
-        "desc": "Servis MSI laptopa u Rijeci — dijagnostika, čišćenje, zamjena dijelova i spašavanje podataka. Gaming i poslovni modeli. Nazovite 051 642 291.",
+        "desc": "Servis MSI laptopa u Rijeci: dijagnostika, čišćenje, zamjena dijelova i spašavanje podataka. Gaming i poslovni modeli. Nazovite 051 642 291.",
         "og_title": "MSI servis laptopa - Rijeka",
         "h2": "Servis MSI laptopa u Rijeki",
         "hero_alt": "Servis MSI laptopa u Rijeki",
     },
     "apple-servis-rijeka.html": {
         "title": "Apple servis Rijeka | ARABBA d.o.o.",
-        "desc": "Apple servis u Rijeci — MacBook Pro, MacBook Air, iMac i Mac mini. Dijagnostika, zamjena dijelova, čišćenje i spašavanje podataka. Nazovite!",
+        "desc": "Apple servis u Rijeci: MacBook Pro, MacBook Air, iMac i Mac mini. Dijagnostika, zamjena dijelova, čišćenje i spašavanje podataka. Nazovite!",
         "og_title": "Apple servis Rijeka",
         "h2": "Apple servis u Rijeki, MacBook i iMac",
         "hero_alt": "Apple MacBook servis u Rijeki",
     },
     "o-nama.html": {
         "title": "O nama | ARABBA d.o.o.",
-        "desc": "ARABBA d.o.o. — servis računala i laptopa u Rijeci od 1995. Precizna dijagnostika, kvalitetni popravci i izvrsna usluga korisnicima.",
+        "desc": "ARABBA d.o.o., servis računala i laptopa u Rijeci od 1995. Precizna dijagnostika, kvalitetni popravci i izvrsna usluga korisnicima.",
         "og_title": "O nama",
         "h2": None,
     },
     "gdje-smo.html": {
         "title": "Gdje smo | ARABBA d.o.o.",
-        "desc": "Gdje nas naći — Crnčićeva 4, Rijeka (iznad Kauflanda na Krnjevu). ARABBA d.o.o. servis računala. Nazovite 051 642 291.",
+        "desc": "Gdje nas naći: Crnčićeva 4, Rijeka (iznad Kauflanda na Krnjevu). ARABBA d.o.o. servis računala. Nazovite 051 642 291.",
         "og_title": "Gdje smo",
         "h2": "Pronađite nas u Rijeci, Crnčićeva 4",
     },
     "podaci-o-firmi.html": {
         "title": "Podaci o firmi | ARABBA d.o.o.",
-        "desc": "Podaci o tvrtki ARABBA d.o.o. — sjedište u Rijeci, Trgovački sud u Rijeci. Kontakt, OIB i poslovne informacije.",
+        "desc": "Podaci o tvrtki ARABBA d.o.o., sjedište u Rijeci, Trgovački sud u Rijeci. Kontakt, OIB i poslovne informacije.",
         "og_title": "Podaci o firmi",
         "h2": None,
     },
 }
 
 INDEX_IMAGE_ALTS = {
-    "images/rijeka_okolica.png": "Rijeka i okolica — područje servisa ARABBA",
+    "images/rijeka_okolica.png": "Rijeka i okolica, područje servisa ARABBA",
     "images/HP-Pavilion-Elite-Desktop-Computer_0.jpg": "Servis računala u Rijeki",
     "images/34-laptop1_0.png": "Servis laptopa u Rijeki",
     "images/windows-7-compatible-antivirus_0.jpg": "Zaštita računala od virusa u Rijeci",
     "images/os.png": "Instalacija operativnih sustava Windows, Linux i Mac OS",
     "images/ugovor.jpg": "Ugovorno održavanje računala u Rijeci",
-    "images/comp-arrow.png": "Gdje smo — lokacija servisa ARABBA u Rijeci",
+    "images/comp-arrow.png": "Gdje smo, lokacija servisa ARABBA u Rijeci",
 }
 
 
@@ -252,7 +252,7 @@ def apply_social_head(content, seo, basename, is_index):
     if SOCIAL_HEAD_RE.search(content):
         return SOCIAL_HEAD_RE.sub(social_block + "\n", content, count=1)
 
-    # First run on a page that only has partial tags — insert after keywords meta.
+    # First run on a page that only has partial tags, insert after keywords meta.
     anchor = re.search(r'<meta name="keywords" content="[^"]*">', content)
     if anchor:
         insert_at = anchor.end()

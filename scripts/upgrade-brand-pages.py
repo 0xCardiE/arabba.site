@@ -42,9 +42,9 @@ COMMON_REPAIRS = """<ul>
 
 COMMON_PROCESS = """<ol>
 <li><strong>Donesete uređaj</strong> u servis na Crnčićevoj 4 ili nas nazovete za savjet.</li>
-<li><strong>Dijagnostika</strong> — utvrdimo kvar i javimo procjenu cijene.</li>
-<li><strong>Popravak</strong> — nakon vašeg odobrenja zamjenjujemo dijelove ili čistimo sustav.</li>
-<li><strong>Testiranje i predaja</strong> — provjerimo da sve radi prije vraćanja uređaja.</li>
+<li><strong>Dijagnostika</strong>: utvrdimo kvar i javimo procjenu cijene.</li>
+<li><strong>Popravak</strong>: nakon vašeg odobrenja zamjenjujemo dijelove ili čistimo sustav.</li>
+<li><strong>Testiranje i predaja</strong>: provjerimo da sve radi prije vraćanja uređaja.</li>
 </ol>"""
 
 BRAND_PAGES = {
@@ -54,22 +54,22 @@ BRAND_PAGES = {
         "og_height": "384",
         "service_name": "Servis MSI laptopa",
         "breadcrumb": "MSI",
-        "hero_message": "MSI laptop vam se pregrijava, ne pali se ili trebate zamjenu dijela? Javite nam se — servisiramo gaming i poslovne modele u Rijeci.",
+        "hero_message": "MSI laptop vam se pregrijava, ne pali se ili trebate zamjenu dijela? Javite nam se, servisiramo gaming i poslovne modele u Rijeci.",
         "intro": (
             "<p>MSI (Micro-Star International) poznat je po gaming laptopovima i kvalitetnim "
-            "matičnim pločama. Arabba nudi kompletan servis MSI laptopa u Rijeci — od čišćenja "
+            "matičnim pločama. Arabba nudi kompletan servis MSI laptopa u Rijeci: od čišćenja "
             "pregrijavanja do zamjene ekrana, tipkovnice i SSD-a.</p>"
         ),
         "models": (
             "<p>Servisiramo popularne serije: <strong>Katana</strong>, <strong>Cyborg</strong>, "
             "<strong>Raider</strong>, <strong>Modern</strong>, <strong>Prestige</strong> i druge "
-            "MSI modele. Gaming laptopi često zahtijevaju temeljito čišćenje rashladnog sustava — "
+            "MSI modele. Gaming laptopi često zahtijevaju temeljito čišćenje rashladnog sustava, "
             "to je jedan od najčešćih razloga zašto nas korisnici kontaktiraju.</p>"
         ),
         "faq": [
             ("Koliko traje servis MSI laptopa?", "Jednostavno čišćenje i manji popravci često isti dan. Zamjena ekrana ili matične ploče obično traje 2–5 radnih dana, ovisno o dostupnosti dijela."),
             ("Zašto se MSI laptop pregrijava?", "Najčešći uzrok je zaprljanje ventilatora i stara termalna pasta. Redovito čišćenje produžuje vijek trajanja i vraća performanse."),
-            ("Servisirate li MSI gaming laptope?", "Da — imamo iskustvo s gaming modelima koji rade pod opterećenjem i brzo se pregrijavaju bez održavanja."),
+            ("Servisirate li MSI gaming laptope?", "Da, imamo iskustvo s gaming modelima koji rade pod opterećenjem i brzo se pregrijavaju bez održavanja."),
             ("Hoćete li sačuvati moje podatke?", "Da, podatke čuvamo koliko god je tehnički moguće. Pri spašavanju podataka s oštećenog diska prvo procjenjujemo stanje."),
         ],
     },
@@ -81,20 +81,20 @@ BRAND_PAGES = {
         "breadcrumb": "Apple",
         "hero_message": "MacBook, iMac ili Mac mini ne radi kako treba? Nudimo dijagnostiku, zamjenu dijelova, čišćenje i spašavanje podataka za Apple uređaje u Rijeci.",
         "intro": (
-            "<p>Nudimo servis Apple računala — MacBook Pro, MacBook Air, iMac, Mac mini i Mac Pro. "
+            "<p>Nudimo servis Apple računala, MacBook Pro, MacBook Air, iMac, Mac mini i Mac Pro. "
             "Obavljamo dijagnostiku, zamjenu komponenti, čišćenje rashladnog sustava, instalaciju "
             "macOS-a te backup i spašavanje podataka.</p>"
         ),
         "models": (
             "<p>Radimo na svim generacijama MacBook Pro i Air, iMac stolnim računalima te Mac mini "
-            "modelima. Bilo da je riječ o sporom Macu, punjenju koje ne radi ili oštećenom ekranu — "
+            "modelima. Bilo da je riječ o sporom Macu, punjenju koje ne radi ili oštećenom ekranu, "
             "prvo utvrdimo kvar, pa predložimo najisplativije rješenje.</p>"
         ),
         "faq": [
-            ("Servisirate li MacBook Pro i Air?", "Da — servisiramo sve generacije MacBook Pro i MacBook Air, uključujući modele s Retina ekranom."),
-            ("Možete li instalirati macOS?", "Da — obavljamo čistu instalaciju macOS-a, migraciju podataka i nadogradnju SSD-a za brži rad."),
+            ("Servisirate li MacBook Pro i Air?", "Da, servisiramo sve generacije MacBook Pro i MacBook Air, uključujući modele s Retina ekranom."),
+            ("Možete li instalirati macOS?", "Da, obavljamo čistu instalaciju macOS-a, migraciju podataka i nadogradnju SSD-a za brži rad."),
             ("Koliko traje Apple servis?", "Dijagnostika je brza, a jednostavniji popravci često isti dan. Složeniji hardverski zahvati traju nekoliko radnih dana."),
-            ("Hoćete li sačuvati moje podatke?", "Da — prije svakog zahvata dogovorimo backup. Spašavanje podataka s oštećenog diska također nudimo."),
+            ("Hoćete li sačuvati moje podatke?", "Da, prije svakog zahvata dogovorimo backup. Spašavanje podataka s oštećenog diska također nudimo."),
         ],
     },
     "servis-hp-laptopa-rijeka.html": {
@@ -106,7 +106,7 @@ BRAND_PAGES = {
         "hero_message": "HP laptop se pregrijava, ne pali se ili trebate zamjenu dijela? Servisiramo Pavilion, ProBook i EliteBook modele u Rijeci.",
         "intro": (
             "<p>HP (Hewlett-Packard) jedna je od najzastupljenijih marki laptopa u regiji. "
-            "Servisiramo serije Pavilion, ProBook i EliteBook — od dijagnostike do zamjene "
+            "Servisiramo serije Pavilion, ProBook i EliteBook, od dijagnostike do zamjene "
             "komponenti i čišćenja rashladnog sustava.</p>"
         ),
         "models": (
@@ -116,9 +116,9 @@ BRAND_PAGES = {
         ),
         "faq": [
             ("Zašto se HP laptop pregrijava?", "Najčešće zbog prašine u ventilatorima i stare termalne paste. Temeljito čišćenje obično riješi problem."),
-            ("Servisirate li HP ProBook i EliteBook?", "Da — radimo na poslovnim i kućnim HP modelima, uključujući zamjenu ekrana, tipkovnica i baterija."),
+            ("Servisirate li HP ProBook i EliteBook?", "Da, radimo na poslovnim i kućnim HP modelima, uključujući zamjenu ekrana, tipkovnica i baterija."),
             ("Koliko traje popravak?", "Manji popravci isti dan, složeniji 2–5 radnih dana ovisno o dijelovima."),
-            ("Dajete li garanciju na popravak?", "Da — na ugrađene dijelove i obavljeni rad dajemo garanciju."),
+            ("Dajete li garanciju na popravak?", "Da, na ugrađene dijelove i obavljeni rad dajemo garanciju."),
         ],
     },
     "servis-lenovo-laptopa-rijeka.html": {
@@ -130,18 +130,18 @@ BRAND_PAGES = {
         "hero_message": "Lenovo ThinkPad ili drugi model ne radi kako treba? Nudimo dijagnostiku, čišćenje i popravak Lenovo laptopa u Rijeci.",
         "intro": (
             "<p>Lenovo, posebno ThinkPad serija, poznat je po izdržljivosti i kvaliteti tipkovnice. "
-            "Arabba godinama servisira Lenovo laptope — pronalazi i otklanja kvarove, čisti "
+            "Arabba godinama servisira Lenovo laptope, pronalazi i otklanja kvarove, čisti "
             "sustav i popravlja oštećene dijelove.</p>"
         ),
         "models": (
             "<p>Radimo na ThinkPad, IdeaPad, Legion i ostalim Lenovo serijama. Bilo da je "
-            "tipkovnica odbila službu, ekran pukao ili laptop spor — pronaći ćemo rješenje.</p>"
+            "tipkovnica odbila službu, ekran pukao ili laptop spor, pronaći ćemo rješenje.</p>"
         ),
         "faq": [
-            ("Servisirate li ThinkPad laptope?", "Da — ThinkPad je jedna od najčešćih serija koje servisiramo, uključujući poslovne modele."),
-            ("Možete li zamijeniti ThinkPad tipkovnicu?", "Da — zamjena tipkovnice i ekrana redovit je posao u našem servisu."),
+            ("Servisirate li ThinkPad laptope?", "Da, ThinkPad je jedna od najčešćih serija koje servisiramo, uključujući poslovne modele."),
+            ("Možete li zamijeniti ThinkPad tipkovnicu?", "Da, zamjena tipkovnice i ekrana redovit je posao u našem servisu."),
             ("Koliko traje dijagnostika?", "Dijagnostiku obavljamo odmah po primitku uređaja, a cijenu popravka dogovaramo prije rada."),
-            ("Radite li u Rijeci i okolici?", "Da — servis je u Rijeci na Crnčićevoj 4, a po dogovoru dolazimo i u okolna mjesta."),
+            ("Radite li u Rijeci i okolici?", "Da, servis je u Rijeci na Crnčićevoj 4, a po dogovoru dolazimo i u okolna mjesta."),
         ],
     },
     "servis-asus-laptopa-rijeka.html": {
@@ -152,7 +152,7 @@ BRAND_PAGES = {
         "breadcrumb": "ASUS",
         "hero_message": "ASUS laptop treba servis, čišćenje ili nadogradnju? Radimo na serijama N, VivoBook, ZenBook i ROG modelima u Rijeci.",
         "intro": (
-            "<p>Asus nudi laptope svih cjenovnih razreda — od multimedijskih N serija do "
+            "<p>Asus nudi laptope svih cjenovnih razreda, od multimedijskih N serija do "
             "ROG gaming modela. U servisu obavljamo dijagnostiku, čišćenje, nadogradnju "
             "i popravak svih ASUS dijelova.</p>"
         ),
@@ -161,10 +161,10 @@ BRAND_PAGES = {
             "drugih marki, redovito čišćenje sprječava pregrijavanje i produžuje vijek trajanja.</p>"
         ),
         "faq": [
-            ("Servisirate li ASUS ROG gaming laptope?", "Da — imamo iskustvo s gaming modelima koji zahtijevaju redovito čišćenje rashladnog sustava."),
-            ("Možete li nadograditi ASUS laptop?", "Da — nudimo nadogradnju SSD-a i RAM-a za brži rad."),
+            ("Servisirate li ASUS ROG gaming laptope?", "Da, imamo iskustvo s gaming modelima koji zahtijevaju redovito čišćenje rashladnog sustava."),
+            ("Možete li nadograditi ASUS laptop?", "Da, nudimo nadogradnju SSD-a i RAM-a za brži rad."),
             ("Koliko košta dijagnostika?", "Procjenu cijene dajemo nakon pregleda uređaja, prije početka popravka."),
-            ("Hoćete li sačuvati moje podatke?", "Da — podatke čuvamo koliko god je moguće pri svakom zahvatu."),
+            ("Hoćete li sačuvati moje podatke?", "Da, podatke čuvamo koliko god je moguće pri svakom zahvatu."),
         ],
     },
     "servis-acer-laptopa-rijeka.html": {
@@ -175,7 +175,7 @@ BRAND_PAGES = {
         "breadcrumb": "Acer",
         "hero_message": "Acer laptop ne radi kako treba? Servisiramo Aspire, TravelMate, Extensa i druge modele u Rijeci.",
         "intro": (
-            "<p>Acer nudi širok spektar laptopa — od Aspire i Iconia serija za svakodnevnu "
+            "<p>Acer nudi širok spektar laptopa, od Aspire i Iconia serija za svakodnevnu "
             "upotrebu do TravelMate i Extensa poslovnih modela. U našem servisu riješit ćemo "
             "sve probleme u radu vašeg Acer laptopa.</p>"
         ),
@@ -184,10 +184,10 @@ BRAND_PAGES = {
             "modelima. Uslugu je moguće dobiti u Rijeci i okolici.</p>"
         ),
         "faq": [
-            ("Servisirate li Acer Aspire laptope?", "Da — Aspire je jedna od najzastupljenijih serija koje servisiramo."),
-            ("Što ako se laptop ne pali?", "Prvo provjerimo napajanje, bateriju i matičnu ploču — dijagnostika otkriva stvarni uzrok."),
+            ("Servisirate li Acer Aspire laptope?", "Da, Aspire je jedna od najzastupljenijih serija koje servisiramo."),
+            ("Što ako se laptop ne pali?", "Prvo provjerimo napajanje, bateriju i matičnu ploču, dijagnostika otkriva stvarni uzrok."),
             ("Koliko traje popravak?", "Manji kvarovi isti dan, zamjena dijelova obično nekoliko radnih dana."),
-            ("Dajete li garanciju?", "Da — na ugrađene dijelove i obavljeni rad."),
+            ("Dajete li garanciju?", "Da, na ugrađene dijelove i obavljeni rad."),
         ],
     },
     "servis-toshiba-laptopa-rijeka.html": {
@@ -199,7 +199,7 @@ BRAND_PAGES = {
         "hero_message": "Toshiba laptop treba popravak ili čišćenje? Servisiramo Satellite, Portégé, Tecra i Qosmio modele u Rijeci.",
         "intro": (
             "<p>Toshiba je poznata po Satellite, Portégé, Tecra i Qosmio serijama. "
-            "Nudimo brz i efikasan servis Toshiba laptopa — dijagnostiku, zamjenu dijelova "
+            "Nudimo brz i efikasan servis Toshiba laptopa, dijagnostiku, zamjenu dijelova "
             "i spašavanje podataka.</p>"
         ),
         "models": (
@@ -207,10 +207,10 @@ BRAND_PAGES = {
             "te Tecra poslovnim serijama. Kontaktirajte nas za bilo koji kvar.</p>"
         ),
         "faq": [
-            ("Servisirate li Toshiba Satellite?", "Da — Satellite je jedna od serija koju redovito servisiramo."),
-            ("Možete li spašiti podatke?", "Da — nudimo spašavanje podataka s oštećenih diskova prije ili tijekom popravka."),
-            ("Koliko traje servis?", "Ovisi o kvaru — jednostavni popravci isti dan, složeniji nekoliko dana."),
-            ("Radite li zamjenu ekrana?", "Da — zamjena ekrana, tipkovnice i baterije uobičajeni su popravci."),
+            ("Servisirate li Toshiba Satellite?", "Da, Satellite je jedna od serija koju redovito servisiramo."),
+            ("Možete li spašiti podatke?", "Da, nudimo spašavanje podataka s oštećenih diskova prije ili tijekom popravka."),
+            ("Koliko traje servis?", "Ovisi o kvaru, jednostavni popravci isti dan, složeniji nekoliko dana."),
+            ("Radite li zamjenu ekrana?", "Da, zamjena ekrana, tipkovnice i baterije uobičajeni su popravci."),
         ],
     },
     "servis-i-popravak-laptopa-rijeka.html": {
@@ -219,21 +219,21 @@ BRAND_PAGES = {
         "og_height": "322",
         "service_name": "Servis i popravak laptopa",
         "breadcrumb": "Servis laptopa",
-        "hero_message": "Imate razbijen laptop, trebate dijelove ili spašavanje podataka. Obratite nam se — servisiramo PC i Mac laptope u Rijeci.",
+        "hero_message": "Imate razbijen laptop, trebate dijelove ili spašavanje podataka. Obratite nam se, servisiramo PC i Mac laptope u Rijeci.",
         "intro": (
-            "<p>Vršimo dijagnostiku kvarova svih vrsta laptopa — zamjenu dijelova, nadogradnju, "
+            "<p>Vršimo dijagnostiku kvarova svih vrsta laptopa: zamjenu dijelova, nadogradnju, "
             "instalaciju operativnih sustava i spašavanje podataka. Ako je popravak isplativ, "
             "nabavljamo dijelove i zamjenjujemo ih u najkraćem roku.</p>"
         ),
         "models": (
             "<p>Servisiramo HP, Lenovo, ASUS, Acer, Toshiba, MSI, Apple MacBook i ostale marke. "
-            "Ako vam laptop radi sporo i pregrijava se — nazovite, naći ćemo rješenje. "
+            "Ako vam laptop radi sporo i pregrijava se, nazovite, naći ćemo rješenje. "
             "Radimo na području Rijeke i okolice.</p>"
         ),
         "faq": [
-            ("Servisirate li sve marke laptopa?", "Da — radimo na PC i Mac laptopovima svih proizvođača."),
+            ("Servisirate li sve marke laptopa?", "Da, radimo na PC i Mac laptopovima svih proizvođača."),
             ("Koliko traje popravak laptopa?", "Jednostavni popravci isti dan, složeniji 2–5 radnih dana."),
-            ("Možete li spašiti podatke?", "Da — spašavanje podataka s oštećenog diska jedna je od naših standardnih usluga."),
+            ("Možete li spašiti podatke?", "Da, spašavanje podataka s oštećenog diska jedna je od naših standardnih usluga."),
             ("Koliko košta dijagnostika?", "Procjenu dajemo nakon pregleda, prije početka popravka."),
         ],
     },
@@ -359,7 +359,7 @@ def update_og_image(content, config):
     )
     content = re.sub(
         r'<meta property="og:image:alt" content="[^"]*">',
-        f'<meta property="og:image:alt" content="{config["service_name"]} u Rijeci — ARABBA d.o.o.">',
+        f'<meta property="og:image:alt" content="{config["service_name"]} u Rijeci, ARABBA d.o.o.">',
         content,
     )
     content = re.sub(
@@ -379,7 +379,7 @@ def update_og_image(content, config):
     )
     content = re.sub(
         r'<meta name="twitter:image:alt" content="[^"]*">',
-        f'<meta name="twitter:image:alt" content="{config["service_name"]} u Rijeci — ARABBA d.o.o.">',
+        f'<meta name="twitter:image:alt" content="{config["service_name"]} u Rijeci, ARABBA d.o.o.">',
         content,
     )
     return content
