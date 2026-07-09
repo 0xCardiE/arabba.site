@@ -1,50 +1,106 @@
 #!/usr/bin/env python3
-"""Apply SEO fixes across all HTML pages."""
+"""Apply SEO and social-sharing meta tags across all HTML pages.
+
+Edit PAGE_SEO (and SITE_* / OG_* constants below), then run:
+
+    python3 scripts/apply-seo.py
+"""
 import glob
 import os
 import re
 import unicodedata
+from urllib.parse import quote
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-OG_IMAGE = "https://arabba.hr/images/logo.png"
-OG_IMAGE_ALT = "ARABBA d.o.o. — servis računala Rijeka"
+
+# Site-wide social / SEO settings (single place to update)
+SITE_URL = "https://arabba.hr"
+SITE_NAME = "ARABBA d.o.o."
+OG_LOCALE = "hr_HR"
+OG_IMAGE = "images/og-share.png"
+OG_IMAGE_WIDTH = 1200
+OG_IMAGE_HEIGHT = 630
+OG_IMAGE_ALT = "ARABBA d.o.o. — servis računala i laptopa, Rijeka"
+TWITTER_CARD = "summary_large_image"
 LOGO_ALT = "ARABBA d.o.o. — servis računala Rijeka"
 
-SOCIAL_META = f"""  <meta property="og:image" content="{OG_IMAGE}">
-  <meta property="og:image:alt" content="{OG_IMAGE_ALT}">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:image" content="{OG_IMAGE}">"""
 
-LOCAL_BUSINESS_JSON = """  <script type="application/ld+json">
-  {
+def absolute_page_url(basename):
+    return f"{SITE_URL}/{quote(basename, safe='')}"
+
+
+def absolute_asset_url(path):
+    return f"{SITE_URL}/{path.lstrip('/')}"
+
+
+def build_social_head(seo, basename, is_index):
+    """Render canonical, Open Graph, title, and Twitter Card tags for one page."""
+    page_url = absolute_page_url(basename)
+    og_image_path = seo.get("og_image", OG_IMAGE)
+    og_image_url = absolute_asset_url(og_image_path)
+    og_image_alt = seo.get("og_image_alt", OG_IMAGE_ALT)
+    og_type = "website" if is_index else "article"
+    og_title = seo["og_title"]
+    desc = seo["desc"]
+    title = seo["title"]
+
+    return f"""  <link rel="canonical" href="{page_url}">
+  <meta property="og:site_name" content="{SITE_NAME}">
+  <meta property="og:locale" content="{OG_LOCALE}">
+  <meta property="og:type" content="{og_type}">
+  <meta property="og:url" content="{page_url}">
+  <meta property="og:title" content="{og_title}">
+  <meta property="og:description" content="{desc}">
+  <meta property="og:image" content="{og_image_url}">
+  <meta property="og:image:secure_url" content="{og_image_url}">
+  <meta property="og:image:alt" content="{og_image_alt}">
+  <meta property="og:image:width" content="{OG_IMAGE_WIDTH}">
+  <meta property="og:image:height" content="{OG_IMAGE_HEIGHT}">
+  <title>{title}</title>
+  <meta name="twitter:card" content="{TWITTER_CARD}">
+  <meta name="twitter:title" content="{og_title}">
+  <meta name="twitter:description" content="{desc}">
+  <meta name="twitter:image" content="{og_image_url}">
+  <meta name="twitter:image:alt" content="{og_image_alt}">"""
+
+
+SOCIAL_HEAD_RE = re.compile(
+    r"  <link rel=\"canonical\" href=\"[^\"]*\">\n"
+    r"(?:  <meta (?:property=\"og:[^\"]*\"|name=\"twitter:[^\"]*\") content=\"[^\"]*\">\n)*"
+    r"  <title>[^<]*</title>\n"
+    r"(?:  <meta (?:property=\"og:[^\"]*\"|name=\"twitter:[^\"]*\") content=\"[^\"]*\">\n)*"
+)
+
+LOCAL_BUSINESS_JSON = f"""  <script type="application/ld+json">
+  {{
     "@context": "https://schema.org",
     "@type": "ComputerRepair",
     "name": "ARABBA d.o.o.",
     "description": "Servis računala i laptopa u Rijeci — PC i Mac. Dijagnostika, popravak, čišćenje virusa i spašavanje podataka.",
-    "url": "https://arabba.hr/",
-    "logo": "https://arabba.hr/images/logo.png",
-    "image": "https://arabba.hr/images/logo.png",
+    "url": "{absolute_page_url("index.html")}",
+    "logo": "{absolute_asset_url("images/logo.png")}",
+    "image": "{absolute_asset_url("images/logo.png")}",
     "telephone": ["+38551642291", "+38598257032"],
     "email": "nenad@arabba.hr",
-    "address": {
+    "address": {{
       "@type": "PostalAddress",
       "streetAddress": "Crnčićeva 4",
       "addressLocality": "Rijeka",
       "postalCode": "51000",
       "addressCountry": "HR"
-    },
-    "geo": {
+    }},
+    "geo": {{
       "@type": "GeoCoordinates",
       "latitude": 45.342448,
       "longitude": 14.399686
-    },
-    "areaServed": {
+    }},
+    "areaServed": {{
       "@type": "City",
       "name": "Rijeka"
-    },
+    }},
     "foundingDate": "1995",
     "priceRange": "$$"
-  }
+  }}
   </script>"""
 
 BRAND_LINKS = """<p><strong>Servis laptopa po markama:</strong> <a href="servis-hp-laptopa-rijeka.html">HP</a>, <a href="servis-lenovo-laptopa-rijeka.html">Lenovo</a>, <a href="servis-asus-laptopa-rijeka.html">ASUS</a>, <a href="servis-acer-laptopa-rijeka.html">Acer</a>, <a href="servis-toshiba-laptopa-rijeka.html">Toshiba</a>, <a href="msi-servis-laptopa-rijeka.html">MSI</a>, <a href="apple-servis-rijeka.html">Apple MacBook</a>.</p>"""
@@ -77,14 +133,14 @@ PAGE_SEO = {
         "title": "Servis računala - Rijeka | ARABBA d.o.o.",
         "desc": "Servis računala u Rijeci — dijagnostika, zamjena komponenti i instalacija softvera. PC i Mac. Brza procjena i popravak. Tel: 051 642 291.",
         "og_title": "Servis računala - Rijeka",
-        "h2": "Servis računala u Rijeci — brzo i pouzdano",
+        "h2": "Servis računala u Rijeci, brzo i pouzdano",
         "hero_alt": "Servis računala u Rijeci",
     },
     "servis-i-popravak-laptopa-rijeka.html": {
         "title": "Servis i popravak Laptopa - Rijeka | ARABBA d.o.o.",
         "desc": "Servis i popravak laptopa u Rijeci — zamjena dijelova, čišćenje, reinstalacija OS-a i spašavanje podataka. PC i Mac. Zatražite procjenu!",
         "og_title": "Servis i popravak Laptopa - Rijeka",
-        "h2": "Servis laptopa u Rijeci — svi modeli",
+        "h2": "Servis laptopa u Rijeci, svi modeli",
         "hero_alt": "Servis laptopa u Rijeki",
         "add_brand_links": True,
     },
@@ -106,7 +162,7 @@ PAGE_SEO = {
         "title": "Zaštita računala Rijeka | ARABBA d.o.o.",
         "desc": "Zaštita računala u Rijeci — instalacija antivirusa, antispywarea, firewalla i backup rješenja. Sigurnost vaših podataka. Nazovite nas!",
         "og_title": "Zaštita računala Rijeka",
-        "h2": "Zaštita računala u Rijeci — antivirus i firewall",
+        "h2": "Zaštita računala u Rijeci, antivirus i firewall",
         "hero_alt": "Zaštita računala od virusa u Rijeci",
     },
     "servis-hp-laptopa-rijeka.html": {
@@ -155,7 +211,7 @@ PAGE_SEO = {
         "title": "Apple servis Rijeka | ARABBA d.o.o.",
         "desc": "Apple servis u Rijeci — MacBook Pro, MacBook Air, iMac i Mac mini. Dijagnostika, zamjena dijelova, čišćenje i spašavanje podataka. Nazovite!",
         "og_title": "Apple servis Rijeka",
-        "h2": "Apple servis u Rijeki — MacBook i iMac",
+        "h2": "Apple servis u Rijeki, MacBook i iMac",
         "hero_alt": "Apple MacBook servis u Rijeki",
     },
     "o-nama.html": {
@@ -168,7 +224,7 @@ PAGE_SEO = {
         "title": "Gdje smo | ARABBA d.o.o.",
         "desc": "Gdje nas naći — Crnčićeva 4, Rijeka (iznad Kauflanda na Krnjevu). ARABBA d.o.o. servis računala. Nazovite 051 642 291.",
         "og_title": "Gdje smo",
-        "h2": "Pronađite nas u Rijeci — Crnčićeva 4",
+        "h2": "Pronađite nas u Rijeci, Crnčićeva 4",
     },
     "podaci-o-firmi.html": {
         "title": "Podaci o firmi | ARABBA d.o.o.",
@@ -197,30 +253,30 @@ def replace_meta(content, name, value):
     return content
 
 
-def replace_og(content, prop, value):
-    pattern = rf'<meta property="{re.escape(prop)}" content="[^"]*">'
-    replacement = f'<meta property="{prop}" content="{value}">'
-    if re.search(pattern, content):
-        return re.sub(pattern, replacement, content, count=1)
+def apply_social_head(content, seo, basename, is_index):
+    """Replace canonical + Open Graph + Twitter block with the current template."""
+    social_block = build_social_head(seo, basename, is_index)
+    if SOCIAL_HEAD_RE.search(content):
+        return SOCIAL_HEAD_RE.sub(social_block + "\n", content, count=1)
+
+    # First run on a page that only has partial tags — insert after keywords meta.
+    anchor = re.search(r'<meta name="keywords" content="[^"]*">', content)
+    if anchor:
+        insert_at = anchor.end()
+        return content[:insert_at] + "\n" + social_block + content[insert_at:]
+
     return content
-
-
-def replace_title(content, value):
-    return re.sub(r"<title>[^<]*</title>", f"<title>{value}</title>", content, count=1)
-
-
-def add_social_meta(content):
-    if "og:image" in content:
-        return content
-    return content.replace(
-        '  <link rel="stylesheet" href="css/site.css">',
-        SOCIAL_META + '\n  <link rel="stylesheet" href="css/site.css">',
-    )
 
 
 def add_json_ld(content):
     if "application/ld+json" in content:
-        return content
+        return re.sub(
+            r'  <script type="application/ld\+json">.*?</script>',
+            LOCAL_BUSINESS_JSON,
+            content,
+            count=1,
+            flags=re.DOTALL,
+        )
     return content.replace(
         '  <link rel="stylesheet" href="css/site.css">',
         LOCAL_BUSINESS_JSON + '\n  <link rel="stylesheet" href="css/site.css">',
@@ -349,13 +405,10 @@ def process_file(path):
         content = f.read()
 
     content = replace_meta(content, "description", seo["desc"])
-    content = replace_og(content, "og:description", seo["desc"])
-    content = replace_og(content, "og:title", seo["og_title"])
-    content = replace_title(content, seo["title"])
+    content = apply_social_head(content, seo, basename, is_index=basename == "index.html")
     content = fix_common_alts(content)
     content = fix_hero_alt(content, seo.get("hero_alt"))
     content = fix_h2(content, seo.get("h2"))
-    content = add_social_meta(content)
     content = add_footer_brand_links(content)
 
     if basename == "index.html":
