@@ -1,30 +1,50 @@
 (function () {
   var TESTIMONIALS = [
     {
-      text: 'Ovim putem Vam želim javiti da sam sve uspješno spojio i upravo Vam šaljem ovaj mail putem računala na kojem ste mi instalirali sve što je bilo potrebno. Zahvaljujem Vam se na suradnji i preporučam se za dalje, ukoliko bude potrebno.',
+      text: 'Ovim putem Vam želim javiti da sam sve uspješno spojio i upravo Vam šaljem ovaj mail putem računala na kojem ste mi instalirali sve što je bilo potrebno. Zahvaljujem Vam se na suradnji i preporučam se za dalje.',
       name: 'Cvetan Pelčić',
       company: 'Klijent'
     },
     {
-      text: 'U redakciji primamo na stotine najava događanja, reporta iz klubova i sa koncerata te se tu nađe i dosta virusa koje se nekada ne mogu izbjeći. Uz Arabba servis svaki put riješim nastale probleme te ga svakom preporučujem.',
+      text: 'U redakciji primamo na stotine najava događanja i reporta te se tu nađe i dosta virusa. Uz Arabba servis svaki put riješim nastale probleme te ga svakom preporučujem.',
       name: 'Leonard Radosavljević',
       company: 'Izlasci.net',
       url: 'http://www.izlasci.net'
     },
     {
-      text: 'Laptop mi se stalno gasio i pregrijavao. U Arabbi su brzo pronašli uzrok, očistili sustav hlađenja i sada radi stabilno kao prvog dana.',
-      name: 'Marko K.',
-      company: 'Klijent, Rijeka'
+      text: 'Gospodin Blažeković spasio mi je notebook — ujutro donijet, poslijepodne opet sve radilo. Još jednom veliko hvala.',
+      name: 'Sonja',
+      company: 'Google recenzija'
     },
     {
-      text: 'Spasili su mi podatke s pokvarenog diska kad drugi servisi nisu mogli pomoći. Profesionalan pristup, jasna komunikacija i fer cijena.',
-      name: 'Ana M.',
-      company: 'Klijent'
+      text: 'Super usluga, odnio sam subotom i isti dan je bilo popravljeno. Preporuke.',
+      name: 'Sven Marenković',
+      company: 'Google recenzija'
     },
     {
-      text: 'Za naš mali ured održavaju računala već godinama. Pouzdani su, brzo reagiraju i uvijek pronađu rješenje kad nešto zatreba.',
-      name: 'Ivica B.',
-      company: 'Poslovni korisnik'
+      text: 'Super zadovoljna!',
+      name: 'Marina Gulin',
+      company: 'Google recenzija'
+    },
+    {
+      text: 'Otključao laptop sa zaboravljenom šifrom u par sati bez problema. Sve pohvale za stručnost.',
+      name: 'Robo 1788',
+      company: 'Google recenzija'
+    },
+    {
+      text: 'Vrlo profesionalno, brzo i po povoljnoj cijeni. Sve preporuke!',
+      name: 'Sara Barisic',
+      company: 'Google recenzija'
+    },
+    {
+      text: 'Koristim usluge gosp. Blažekovića godinama i imam samo riječi hvale. Brza intervencija, profesionalnost i dugogodišnje iskustvo.',
+      name: 'Igor Ganić',
+      company: 'Google recenzija'
+    },
+    {
+      text: 'Odlična usluga, brza intervencija i realizacija popravka. Problem riješen u vrlo kratkom roku. Preporučujem!',
+      name: 'Korana Stojčić',
+      company: 'Google recenzija'
     }
   ];
 
