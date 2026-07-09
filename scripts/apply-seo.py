@@ -105,21 +105,14 @@ LOCAL_BUSINESS_JSON = f"""  <script type="application/ld+json">
 
 BRAND_LINKS = """<p><strong>Servis laptopa po markama:</strong> <a href="servis-hp-laptopa-rijeka.html">HP</a>, <a href="servis-lenovo-laptopa-rijeka.html">Lenovo</a>, <a href="servis-asus-laptopa-rijeka.html">ASUS</a>, <a href="servis-acer-laptopa-rijeka.html">Acer</a>, <a href="servis-toshiba-laptopa-rijeka.html">Toshiba</a>, <a href="msi-servis-laptopa-rijeka.html">MSI</a>, <a href="apple-servis-rijeka.html">Apple MacBook</a>.</p>"""
 
-FOOTER_BRAND_LINKS = """<div class="block block-block block-brand-links block-block-brand-links even block-without-title" id="block-brand-links">
-  <div class="block-inner clearfix">
-    <div class="content clearfix">
-      <p class="brand-links"><strong>Servis laptopa po markama:</strong>
-        <a href="servis-hp-laptopa-rijeka.html">HP</a>,
-        <a href="servis-lenovo-laptopa-rijeka.html">Lenovo</a>,
-        <a href="servis-asus-laptopa-rijeka.html">ASUS</a>,
-        <a href="servis-acer-laptopa-rijeka.html">Acer</a>,
-        <a href="servis-toshiba-laptopa-rijeka.html">Toshiba</a>,
-        <a href="msi-servis-laptopa-rijeka.html">MSI</a>,
-        <a href="apple-servis-rijeka.html">Apple</a>
-      </p>
-    </div>
-  </div>
-</div>"""
+FOOTER_BRAND_LINKS_RE = re.compile(
+    r'<div class="block block-block block-brand-links block-block-brand-links even block-without-title" id="block-brand-links">'
+    r"\s*<div class=\"block-inner clearfix\">\s*"
+    r'<div class="content clearfix">\s*'
+    r'<p class="brand-links"><strong>Servis laptopa po markama:</strong>.*?</p>\s*'
+    r"</div>\s*</div>\s*</div>",
+    re.DOTALL,
+)
 
 # Match files by basename prefix / exact name
 PAGE_SEO = {
@@ -344,15 +337,28 @@ def fix_h2(content, h2_text):
     )
 
 
-def fix_homepage_h1(content):
-    content = content.replace(
-        '<h1 class="node-title">Trebate pouzdan servis računala ili laptopa?</h1>',
-        '<h1 class="node-title">Servis računala i laptopa u Rijeki</h1>',
+def fix_homepage_hero(content):
+    """Keep the homepage hero as real HTML text matching the original design."""
+    hero_block = """        <h1 class="node-title">Trebate pouzdan servis računala ili laptopa?</h1>
+    
+  
+  <div class="content">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even"><p>Usluge popravka računala i laptopa su naša specijalnost. Vaše računalo će raditi brzo i stabilno.</p>
+<p class="hero-mail-label"><strong>Pošaljite nam mail na</strong></p>
+<p class="hero-mail"><a href="mailto:nenad@arabba.hr">nenad@arabba.hr</a></p>
+</div></div></div>  </div>"""
+
+    pattern = re.compile(
+        r"        <h1 class=\"node-title\">[^<]*</h1>\s*"
+        r"(?:\n\s*)?"
+        r"<div class=\"content\">\s*"
+        r"<div class=\"field field-name-body field-type-text-with-summary field-label-hidden\">"
+        r"<div class=\"field-items\"><div class=\"field-item even\">.*?"
+        r"</div></div></div>  </div>",
+        re.DOTALL,
     )
-    content = content.replace(
-        "<p>Usluge popravka računala i laptopa su naša specijalnost. Vaše računalo će raditi brzo i stabilno.</p>",
-        "<p class=\"lead\">Trebate pouzdan servis računala ili laptopa?</p>\n<p>Usluge popravka računala i laptopa su naša specijalnost. Vaše računalo će raditi brzo i stabilno.</p>",
-    )
+    if pattern.search(content):
+        return pattern.sub(hero_block, content, count=1)
     return content
 
 
@@ -363,13 +369,8 @@ def add_brand_links_body(content):
     return re.sub(pattern, r'\1\n' + BRAND_LINKS, content, count=1)
 
 
-def add_footer_brand_links(content):
-    if "block-brand-links" in content:
-        return content
-    anchor = '<div class="block block-block block-2 block-block-2 even block-without-title" id="block-block-2">'
-    if anchor in content:
-        return content.replace(anchor, FOOTER_BRAND_LINKS + anchor)
-    return content
+def remove_footer_brand_links(content):
+    return FOOTER_BRAND_LINKS_RE.sub("", content)
 
 
 def nfc(name):
@@ -409,10 +410,10 @@ def process_file(path):
     content = fix_common_alts(content)
     content = fix_hero_alt(content, seo.get("hero_alt"))
     content = fix_h2(content, seo.get("h2"))
-    content = add_footer_brand_links(content)
+    content = remove_footer_brand_links(content)
 
     if basename == "index.html":
-        content = fix_homepage_h1(content)
+        content = fix_homepage_hero(content)
         content = fix_index_image_alts(content)
         content = add_json_ld(content)
 
