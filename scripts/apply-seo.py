@@ -23,6 +23,40 @@ OG_IMAGE_HEIGHT = 630
 OG_IMAGE_ALT = "ARABBA d.o.o., servis računala i laptopa, Rijeka"
 TWITTER_CARD = "summary_large_image"
 LOGO_ALT = "ARABBA d.o.o., servis računala Rijeka"
+GA_MEASUREMENT_ID = "G-G2D67EE1TR"
+
+
+def build_ga_snippet():
+    mid = GA_MEASUREMENT_ID
+    return f"""  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id={mid}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){{dataLayer.push(arguments);}}
+    gtag('js', new Date());
+
+    gtag('config', '{mid}');
+  </script>
+"""
+
+
+GA_SNIPPET_RE = re.compile(
+    r"  <!-- Google tag \(gtag\.js\) -->.*?"
+    r"    gtag\('config', '[^']+'\);\n"
+    r"  </script>\n",
+    re.DOTALL,
+)
+
+
+def apply_ga_snippet(content):
+    snippet = build_ga_snippet()
+    if GA_SNIPPET_RE.search(content):
+        return GA_SNIPPET_RE.sub(snippet, content, count=1)
+    return content.replace(
+        '  <link rel="stylesheet" href="css/site.css">',
+        snippet + '  <link rel="stylesheet" href="css/site.css">',
+        1,
+    )
 
 
 def absolute_page_url(basename):
@@ -419,6 +453,8 @@ def process_file(path):
 
     if seo.get("add_brand_links"):
         content = add_brand_links_body(content)
+
+    content = apply_ga_snippet(content)
 
     with open(path, "w", encoding="utf-8") as f:
         f.write(content)
