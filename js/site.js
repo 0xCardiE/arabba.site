@@ -43,13 +43,17 @@
 
   /* --- Google reviews badge (homepage) --- */
   function renderStars(rating) {
-    var full = Math.floor(rating);
-    var half = rating - full >= 0.25 && rating - full < 0.75;
+    var roundedHalf = Math.round(rating * 2) / 2;
+    var full = Math.floor(roundedHalf);
+    var hasHalf = roundedHalf - full >= 0.5;
+    var empty = 5 - full - (hasHalf ? 1 : 0);
     var html = '';
     var i;
     for (i = 0; i < full; i++) html += '<span class="star star-full" aria-hidden="true">★</span>';
-    if (half) html += '<span class="star star-half" aria-hidden="true">★</span>';
-    for (i = full + (half ? 1 : 0); i < 5; i++) html += '<span class="star star-empty" aria-hidden="true">☆</span>';
+    if (hasHalf) {
+      html += '<span class="star star-half" aria-hidden="true"><span class="star-half-fill">★</span><span class="star-half-bg">☆</span></span>';
+    }
+    for (i = 0; i < empty; i++) html += '<span class="star star-empty" aria-hidden="true">☆</span>';
     return html;
   }
 

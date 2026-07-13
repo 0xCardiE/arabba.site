@@ -156,6 +156,10 @@ h1#page-title{margin-bottom:1.25rem;}
 .google-reviews-link{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:999px;background:#fff;border:1px solid #e5e5e5;text-decoration:none;color:#333;box-shadow:0 2px 8px rgba(0,0,0,0.05);}
 .google-reviews-link:hover{border-color:#FD6931;color:#333;}
 .google-reviews-stars{color:#f5a623;font-size:18px;letter-spacing:1px;}
+.google-reviews-stars .star-empty{color:#d8d8d8;}
+.google-reviews-stars .star-half{position:relative;display:inline-block;width:0.95em;color:#d8d8d8;}
+.google-reviews-stars .star-half-fill,.google-reviews-stars .star-half-bg{display:block;line-height:1;}
+.google-reviews-stars .star-half-fill{position:absolute;left:0;top:0;width:50%;overflow:hidden;color:#f5a623;}
 .google-reviews-text{font-size:14px;color:#555;}
 .front-testimonial-wrap{max-width:640px;margin:0 auto;}
 #block-views-testimonial-block-front .view-content{background:#fff;border-radius:12px;padding:22px 24px;box-shadow:0 4px 18px rgba(0,0,0,0.08);min-height:110px;transition:opacity .35s ease;}

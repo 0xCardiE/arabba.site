@@ -71,9 +71,15 @@ def build_footer_phones():
 
 
 def render_stars_html(rating):
-    full = min(5, max(0, int(round(float(rating)))))
+    """Render 5 stars, rounding to nearest half (4.4 → 4 full + 1 half)."""
+    rounded_half = round(float(rating) * 2) / 2
+    full = int(rounded_half)
+    has_half = rounded_half - full >= 0.5
+    empty = 5 - full - (1 if has_half else 0)
     html = '<span class="star star-full" aria-hidden="true">★</span>' * full
-    html += '<span class="star star-empty" aria-hidden="true">☆</span>' * (5 - full)
+    if has_half:
+        html += '<span class="star star-half" aria-hidden="true"><span class="star-half-fill">★</span><span class="star-half-bg">☆</span></span>'
+    html += '<span class="star star-empty" aria-hidden="true">☆</span>' * empty
     return html
 
 
