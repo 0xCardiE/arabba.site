@@ -64,8 +64,9 @@ def build_ga_snippet():
 
 GA_SNIPPET_RE = re.compile(
     r"  <!-- Google tag \(gtag\.js\) -->.*?"
-    r"    gtag\('config', '[^']+'\);\n"
-    r"  </script>\n",
+    r"  </script>\n"
+    r"(?:  <script>\n    document\.addEventListener\('DOMContentLoaded', function\(\) \{.*?"
+    r"    \}\);\n  </script>\n)*",
     re.DOTALL,
 )
 
