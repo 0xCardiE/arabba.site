@@ -78,7 +78,7 @@ def build_json_ld(config, basename):
                 "@type": "ComputerRepair",
                 "name": "ARABBA d.o.o.",
                 "url": f"{SITE_URL}/index.html",
-                "telephone": ["+38551642291", "+38598257032"],
+                "telephone": "+38598257032",
                 "address": {
                     "@type": "PostalAddress",
                     "streetAddress": "Crnčićeva 4",

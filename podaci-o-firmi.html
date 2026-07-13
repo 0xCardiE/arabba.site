@@ -33,9 +33,39 @@
 
     gtag('config', 'G-G2D67EE1TR');
   </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.service-faq .faq-item h3').forEach(function(h) {
+        h.addEventListener('click', function() {
+          if (typeof gtag === 'function') gtag('event', 'faq_opened', {question: h.textContent.trim()});
+        });
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.service-faq .faq-item h3').forEach(function(h) {
+        h.addEventListener('click', function() {
+          if (typeof gtag === 'function') gtag('event', 'faq_opened', {question: h.textContent.trim()});
+        });
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.service-faq .faq-item h3').forEach(function(h) {
+        h.addEventListener('click', function() {
+          if (typeof gtag === 'function') gtag('event', 'faq_opened', {question: h.textContent.trim()});
+        });
+      });
+    });
+  </script>
   <link rel="stylesheet" href="css/site.css">
 </head>
 <body class="context-podaci-o-firmi">
+<div id="skip-link"><a href="#main-content" class="element-invisible element-focusable">Preskoči na sadržaj</a></div>
+<div id="skip-link"><a href="#main-content" class="element-invisible element-focusable">Preskoči na sadržaj</a></div>
+<div id="skip-link"><a href="#main-content" class="element-invisible element-focusable">Preskoči na sadržaj</a></div>
     <div class="page clearfix" id="page">
       <header id="section-header" class="section section-header">
   <div id="zone-branding-wrapper" class="zone-wrapper zone-branding-wrapper clearfix">  
@@ -144,7 +174,7 @@
       </div>
       <div class="contact-strip-item contact-strip-phone">
         <strong>Telefon</strong>
-        <span class="contact-strip-phones"><a href="tel:+38551642291">051 642 291</a><br><a href="tel:+38598257032">098 257 032</a></span>
+        <span class="contact-strip-phones"><a href="tel:+38598257032">098 257 032</a></span>
         <span class="contact-strip-messengers">
           <a href="https://wa.me/38598257032" class="messenger-link messenger-whatsapp" aria-label="WhatsApp poruka"><img src="images/icon-whatsapp.svg" width="20" height="20" alt=""><span>WhatsApp</span></a>
           <a href="viber://chat?number=38598257032" class="messenger-link messenger-viber" aria-label="Viber poruka"><img src="images/icon-viber.svg" width="20" height="20" alt=""><span>Viber</span></a>
@@ -212,5 +242,6 @@
 </div>  </div>
 </div></footer>  </div>
 <a href="tel:+38598257032" class="sticky-call-btn" aria-label="Nazovite nas"><span class="sticky-call-label">Nazovite</span><span class="sticky-call-number">098 257 032</span></a>
+  <script src="js/site.js" defer></script>
 </body>
 </html>

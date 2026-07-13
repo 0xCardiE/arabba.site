@@ -11,7 +11,7 @@ ARABBA d.o.o. has provided electronics repair and computer services in Rijeka si
 **Founder & director:** Nenad Blažeković
 
 **Address:** Crnčićeva 4, 51000 Rijeka, Croatia  
-**Phone:** [051 642 291](tel:+38551642291) / [098 257 032](tel:+38598257032)  
+**Phone:** [098 257 032](tel:+38598257032)  
 **Email:** [nenad@arabba.hr](mailto:nenad@arabba.hr)  
 **Service area:** Rijeka and surrounding area
 
@@ -39,7 +39,21 @@ Static HTML site for [arabba.hr](https://arabba.hr/). No build step required, de
 ├── servis-*.html       # Service pages
 ├── css/site.css        # All styles (single bundle)
 ├── js/testimonials.js  # Testimonial carousel on service pages
+├── js/site.js          # Analytics, Google reviews badge, lazy media
+├── data/google-reviews.json  # Cached Google rating (see scripts below)
 └── images/             # Logos, photos, icons
+```
+
+**Site maintenance scripts** (run from repo root):
+
+```bash
+python3 scripts/upgrade-site.py   # Contact CTAs, a11y, performance
+python3 scripts/apply-seo.py      # Meta tags, schema, GA4
+
+# Google reviews badge (needs Places API key, or manual values):
+GOOGLE_PLACES_API_KEY=... python3 scripts/fetch-google-reviews.py
+python3 scripts/fetch-google-reviews.py --rating 4.9 --count 38
+python3 scripts/apply-seo.py      # Re-apply schema with AggregateRating
 ```
 
 To preview locally:

@@ -139,3 +139,32 @@ h1#page-title{margin-bottom:1.25rem;}
 @media all and (min-width:980px) and (min-device-width:980px),all and (max-device-width:1024px) and (min-width:1024px) and (orientation:landscape){.grid-1,.grid-2,.grid-3,.grid-4,.grid-5,.grid-6,.grid-7,.grid-8,.grid-9,.grid-10,.grid-11,.grid-12{display:inline;float:left;position:relative;margin-left:10px;margin-right:10px;}.push-1,.pull-1,.push-2,.pull-2,.push-3,.pull-3,.push-4,.pull-4,.push-5,.pull-5,.push-6,.pull-6,.push-7,.pull-7,.push-8,.pull-8,.push-9,.pull-9,.push-10,.pull-10,.push-11,.pull-11,.push-12,.pull-12{position:relative;}.alpha{margin-left:0;}.omega{margin-right:0;}body{min-width:960px;}.container-12{margin-left:auto;margin-right:auto;width:960px;}.container-12 .grid-1{width:64px;}.container-12 .grid-2{width:144px;}.container-12 .grid-3{width:224px;}.container-12 .grid-4{width:304px;}.container-12 .grid-5{width:480px;}.container-12 .grid-6{width:580px;}.container-12 .grid-7{width:680px;}.container-12 .grid-8{width:624px;}.container-12 .grid-9{width:880px;}.container-12 .grid-10{width:980px;}.container-12 .grid-11{width:1080px;}.container-12 .grid-12{width:944px;}.container-12 .prefix-1{padding-left:100px;}.container-12 .prefix-2{padding-left:200px;}.container-12 .prefix-3{padding-left:300px;}.container-12 .prefix-4{padding-left:400px;}.container-12 .prefix-5{padding-left:500px;}.container-12 .prefix-6{padding-left:600px;}.container-12 .prefix-7{padding-left:700px;}.container-12 .prefix-8{padding-left:800px;}.container-12 .prefix-9{padding-left:900px;}.container-12 .prefix-10{padding-left:1000px;}.container-12 .prefix-11{padding-left:1100px;}.container-12 .suffix-1{padding-right:100px;}.container-12 .suffix-2{padding-right:200px;}.container-12 .suffix-3{padding-right:300px;}.container-12 .suffix-4{padding-right:400px;}.container-12 .suffix-5{padding-right:500px;}.container-12 .suffix-6{padding-right:600px;}.container-12 .suffix-7{padding-right:700px;}.container-12 .suffix-8{padding-right:800px;}.container-12 .suffix-9{padding-right:900px;}.container-12 .suffix-10{padding-right:1000px;}.container-12 .suffix-11{padding-right:1100px;}.container-12 .push-1{left:100px;}.container-12 .push-2{left:200px;}.container-12 .push-3{left:300px;}.container-12 .push-4{left:400px;}.container-12 .push-5{left:500px;}.container-12 .push-6{left:600px;}.container-12 .push-7{left:700px;}.container-12 .push-8{left:800px;}.container-12 .push-9{left:900px;}.container-12 .push-10{left:1000px;}.container-12 .push-11{left:1100px;}.container-12 .pull-1{left:-100px;}.container-12 .pull-2{left:-200px;}.container-12 .pull-3{left:-300px;}.container-12 .pull-4{left:-400px;}.container-12 .pull-5{left:-500px;}.container-12 .pull-6{left:-600px;}.container-12 .pull-7{left:-700px;}.container-12 .pull-8{left:-800px;}.container-12 .pull-9{left:-900px;}.container-12 .pull-10{left:-1000px;}.container-12 .pull-11{left:-1100px;}}
 @media all and (min-width:980px) and (min-device-width:980px),all and (max-device-width:1024px) and (min-width:1024px) and (orientation:landscape){}
 
+/* --- Site upgrades: hero contact, proof strip, a11y, performance --- */
+.hero-phone-primary{display:inline-block;margin:18px auto 10px;padding:12px 28px;border-radius:10px;background:#dc434e;color:#fff !important;font-size:32px;font-weight:700;line-height:1.2;text-decoration:none;text-align:center;transition:background .2s ease,transform .15s ease;}
+.hero-phone-primary:hover,.hero-phone-primary:focus{background:#b22424;color:#fff !important;transform:translateY(-1px);}
+.hero-email-secondary{display:block;margin:14px 0 0;font-size:14px;color:#888;font-style:normal;line-height:1.4;}
+.hero-email-secondary a{color:#999 !important;font-weight:normal;font-size:14px;text-decoration:underline;text-underline-offset:2px;}
+.hero-email-secondary a:hover{color:#FD6931 !important;}
+#block-webform-client-block-7029 .hero-mail-label,#block-webform-client-block-7029 .hero-mail{display:none;}
+#block-views-contact-block-block .form-button,#block-views-contact-block-block .form-second-row{display:none;}
+#block-views-contact-block-block .hero-phone-primary{display:block;width:fit-content;margin-left:auto;margin-right:auto;}
+.hero-subtitle{color:#605d5b;font-size:33px;font-weight:600;line-height:1.15;margin:0 0 7px;text-align:center;}
+.front-proof-strip{background:#f4f4f4;border-top:1px solid #e0e0e0;padding:36px 20px 44px;}
+.front-proof-inner{max-width:960px;margin:0 auto;text-align:center;}
+.front-proof-title{font-size:22px;color:#605d5b;margin:0 0 20px;font-weight:600;}
+.google-reviews-badge{margin-bottom:18px;}
+.google-reviews-link{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:999px;background:#fff;border:1px solid #e5e5e5;text-decoration:none;color:#333;box-shadow:0 2px 8px rgba(0,0,0,0.05);}
+.google-reviews-link:hover{border-color:#FD6931;color:#333;}
+.google-reviews-stars{color:#f5a623;font-size:18px;letter-spacing:1px;}
+.google-reviews-text{font-size:14px;color:#555;}
+.front-testimonial-wrap{max-width:640px;margin:0 auto;}
+#block-views-testimonial-block-front .view-content{background:#fff;border-radius:12px;padding:22px 24px;box-shadow:0 4px 18px rgba(0,0,0,0.08);min-height:110px;transition:opacity .35s ease;}
+#block-views-testimonial-block-front .view-content.is-fading{opacity:0;}
+#block-views-testimonial-block-front .views-field-body{font-size:16px;font-style:italic;line-height:1.45;color:#666;}
+#block-views-testimonial-block-front .views-field-title{font-size:16px;font-weight:bold;color:#666;text-align:right;margin-top:10px;}
+#block-views-testimonial-block-front .views-field-field-company-link{text-align:right;font-size:13px;}
+@media (prefers-reduced-motion:reduce){#block-views-testimonial-block .view-content,#block-views-testimonial-block-front .view-content{transition:none;}.hero-phone-primary{transition:none;}}
+a:focus-visible,.hero-phone-primary:focus-visible,.messenger-link:focus-visible,.sticky-call-btn:focus-visible,.google-reviews-link:focus-visible{outline:3px solid #0062A0;outline-offset:3px;}
+@media only screen and (max-width:479px){.hero-phone-primary{font-size:28px;padding:12px 22px;}}
+@media only screen and (max-width:980px){.front-proof-strip{padding:28px 16px 36px;}}
+

@@ -6,12 +6,24 @@ Edit PAGE_SEO (and SITE_* / OG_* constants below), then run:
     python3 scripts/apply-seo.py
 """
 import glob
+import json
 import os
 import re
+import sys
 import unicodedata
 from urllib.parse import quote
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from site_shared import (
+    LINKEDIN_URL,
+    MAPS_URL,
+    MOBILE_TEL,
+    OPENING_HOURS,
+    build_homepage_hero_body,
+)
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+GOOGLE_REVIEWS_PATH = os.path.join(ROOT, "data", "google-reviews.json")
 
 # Site-wide social / SEO settings (single place to update)
 SITE_URL = "https://arabba.hr"
@@ -36,6 +48,15 @@ def build_ga_snippet():
     gtag('js', new Date());
 
     gtag('config', '{mid}');
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {{
+      document.querySelectorAll('.service-faq .faq-item h3').forEach(function(h) {{
+        h.addEventListener('click', function() {{
+          if (typeof gtag === 'function') gtag('event', 'faq_opened', {{question: h.textContent.trim()}});
+        }});
+      }});
+    }});
   </script>
 """
 
@@ -105,37 +126,115 @@ SOCIAL_HEAD_RE = re.compile(
     r"(?:  <meta (?:property=\"og:[^\"]*\"|name=\"twitter:[^\"]*\") content=\"[^\"]*\">\n)*"
 )
 
-LOCAL_BUSINESS_JSON = f"""  <script type="application/ld+json">
-  {{
-    "@context": "https://schema.org",
-    "@type": "ComputerRepair",
-    "name": "ARABBA d.o.o.",
-    "description": "Servis računala i laptopa u Rijeci: PC i Mac. Dijagnostika, popravak, čišćenje virusa i spašavanje podataka.",
-    "url": "{absolute_page_url("index.html")}",
-    "logo": "{absolute_asset_url("images/logo.png")}",
-    "image": "{absolute_asset_url("images/logo.png")}",
-    "telephone": ["+38551642291", "+38598257032"],
-    "email": "nenad@arabba.hr",
-    "address": {{
-      "@type": "PostalAddress",
-      "streetAddress": "Crnčićeva 4",
-      "addressLocality": "Rijeka",
-      "postalCode": "51000",
-      "addressCountry": "HR"
-    }},
-    "geo": {{
-      "@type": "GeoCoordinates",
-      "latitude": 45.342448,
-      "longitude": 14.399686
-    }},
-    "areaServed": {{
-      "@type": "City",
-      "name": "Rijeka"
-    }},
-    "foundingDate": "1995",
-    "priceRange": "$$"
-  }}
-  </script>"""
+def load_google_reviews():
+    try:
+        with open(GOOGLE_REVIEWS_PATH, encoding="utf-8") as f:
+            return json.load(f)
+    except (OSError, json.JSONDecodeError):
+        return {}
+
+
+def build_local_business_json():
+    reviews = load_google_reviews()
+    data = {
+        "@context": "https://schema.org",
+        "@type": "ComputerRepair",
+        "name": "ARABBA d.o.o.",
+        "description": "Servis računala i laptopa u Rijeci: PC i Mac. Dijagnostika, popravak, čišćenje virusa i spašavanje podataka.",
+        "url": absolute_page_url("index.html"),
+        "logo": absolute_asset_url("images/logo.png"),
+        "image": absolute_asset_url("images/logo.png"),
+        "telephone": MOBILE_TEL,
+        "email": "nenad@arabba.hr",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Crnčićeva 4",
+            "addressLocality": "Rijeka",
+            "postalCode": "51000",
+            "addressCountry": "HR",
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 45.342448,
+            "longitude": 14.399686,
+        },
+        "areaServed": {"@type": "City", "name": "Rijeka"},
+        "foundingDate": "1995",
+        "priceRange": "$$",
+        "openingHoursSpecification": OPENING_HOURS,
+        "sameAs": [MAPS_URL, LINKEDIN_URL],
+    }
+    rating = reviews.get("rating")
+    count = reviews.get("reviewCount")
+    if rating is not None and count is not None:
+        data["aggregateRating"] = {
+            "@type": "AggregateRating",
+            "ratingValue": rating,
+            "reviewCount": count,
+            "bestRating": 5,
+            "worstRating": 1,
+        }
+    return (
+        '  <script type="application/ld+json">\n'
+        + json.dumps(data, ensure_ascii=False, indent=2)
+        + "\n  </script>"
+    )
+
+
+def build_about_json_ld():
+    data = {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "name": "O nama | ARABBA d.o.o.",
+        "url": absolute_page_url("o-nama.html"),
+        "mainEntity": {
+            "@type": "ComputerRepair",
+            "name": "ARABBA d.o.o.",
+            "foundingDate": "1995",
+            "telephone": MOBILE_TEL,
+            "email": "nenad@arabba.hr",
+            "url": absolute_page_url("index.html"),
+            "sameAs": [MAPS_URL, LINKEDIN_URL],
+        },
+    }
+    return (
+        '  <script type="application/ld+json">\n'
+        + json.dumps(data, ensure_ascii=False, indent=2)
+        + "\n  </script>"
+    )
+
+
+def build_location_json_ld():
+    data = {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "ARABBA d.o.o.",
+        "url": absolute_page_url("gdje-smo.html"),
+        "telephone": MOBILE_TEL,
+        "email": "nenad@arabba.hr",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Crnčićeva 4",
+            "addressLocality": "Rijeka",
+            "postalCode": "51000",
+            "addressCountry": "HR",
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 45.342448,
+            "longitude": 14.399686,
+        },
+        "openingHoursSpecification": OPENING_HOURS,
+        "sameAs": [MAPS_URL, LINKEDIN_URL],
+    }
+    return (
+        '  <script type="application/ld+json">\n'
+        + json.dumps(data, ensure_ascii=False, indent=2)
+        + "\n  </script>"
+    )
+
+
+JSON_LD_RE = re.compile(r'  <script type="application/ld\+json">.*?</script>', re.DOTALL)
 
 BRAND_LINKS = """<p><strong>Servis laptopa po markama:</strong> <a href="servis-hp-laptopa-rijeka.html">HP</a>, <a href="servis-lenovo-laptopa-rijeka.html">Lenovo</a>, <a href="servis-asus-laptopa-rijeka.html">ASUS</a>, <a href="servis-acer-laptopa-rijeka.html">Acer</a>, <a href="servis-toshiba-laptopa-rijeka.html">Toshiba</a>, <a href="msi-servis-laptopa-rijeka.html">MSI</a>, <a href="apple-servis-rijeka.html">Apple MacBook</a>.</p>"""
 
@@ -158,7 +257,7 @@ PAGE_SEO = {
     },
     "servis-računala.html": {
         "title": "Servis računala - Rijeka | ARABBA d.o.o.",
-        "desc": "Servis računala u Rijeci: dijagnostika, zamjena komponenti i instalacija softvera. PC i Mac. Brza procjena i popravak. Tel: 051 642 291.",
+        "desc": "Servis računala u Rijeci: dijagnostika, zamjena komponenti i instalacija softvera. PC i Mac. Brza procjena i popravak. Nazovite 098 257 032.",
         "og_title": "Servis računala - Rijeka",
         "h2": "Servis računala u Rijeci, brzo i pouzdano",
         "hero_alt": "Servis računala u Rijeci",
@@ -194,7 +293,7 @@ PAGE_SEO = {
     },
     "servis-hp-laptopa-rijeka.html": {
         "title": "Servis HP laptopa - Rijeka | ARABBA d.o.o.",
-        "desc": "Servis HP laptopa u Rijeci: Pavilion, ProBook, EliteBook. Dijagnostika, čišćenje pregrijavanja, zamjena dijelova. Tel: 051 642 291.",
+        "desc": "Servis HP laptopa u Rijeci: Pavilion, ProBook, EliteBook. Dijagnostika, čišćenje pregrijavanja, zamjena dijelova. Nazovite 098 257 032.",
         "og_title": "Servis HP laptopa - Rijeka",
         "h2": "Servis HP laptopa u Rijeci",
         "hero_alt": "Servis HP laptopa u Rijeci",
@@ -215,7 +314,7 @@ PAGE_SEO = {
     },
     "servis-lenovo-laptopa-rijeka.html": {
         "title": "Servis Lenovo laptopa - Rijeka | ARABBA d.o.o.",
-        "desc": "Servis Lenovo laptopa u Rijeci: ThinkPad i ostali modeli. Dijagnostika, čišćenje, zamjena dijelova i spašavanje podataka. Tel: 051 642 291.",
+        "desc": "Servis Lenovo laptopa u Rijeci: ThinkPad i ostali modeli. Dijagnostika, čišćenje, zamjena dijelova i spašavanje podataka. Nazovite 098 257 032.",
         "og_title": "Servis Lenovo laptopa - Rijeka",
         "h2": "Servis Lenovo laptopa u Rijeci",
         "hero_alt": "Servis Lenovo laptopa u Rijeci",
@@ -229,7 +328,7 @@ PAGE_SEO = {
     },
     "msi-servis-laptopa-rijeka.html": {
         "title": "MSI servis laptopa - Rijeka | ARABBA d.o.o.",
-        "desc": "Servis MSI laptopa u Rijeci: dijagnostika, čišćenje, zamjena dijelova i spašavanje podataka. Gaming i poslovni modeli. Nazovite 051 642 291.",
+        "desc": "Servis MSI laptopa u Rijeci: dijagnostika, čišćenje, zamjena dijelova i spašavanje podataka. Gaming i poslovni modeli. Nazovite 098 257 032.",
         "og_title": "MSI servis laptopa - Rijeka",
         "h2": "Servis MSI laptopa u Rijeci",
         "hero_alt": "Servis MSI laptopa u Rijeci",
@@ -249,7 +348,7 @@ PAGE_SEO = {
     },
     "gdje-smo.html": {
         "title": "Gdje smo | ARABBA d.o.o.",
-        "desc": "Gdje nas naći: Crnčićeva 4, Rijeka (iznad Kauflanda na Krnjevu). ARABBA d.o.o. servis računala. Nazovite 051 642 291.",
+        "desc": "Gdje nas naći: Crnčićeva 4, Rijeka (iznad Kauflanda na Krnjevu). ARABBA d.o.o. servis računala. Nazovite 098 257 032.",
         "og_title": "Gdje smo",
         "h2": "Pronađite nas u Rijeci, Crnčićeva 4",
     },
@@ -295,18 +394,21 @@ def apply_social_head(content, seo, basename, is_index):
     return content
 
 
-def add_json_ld(content):
-    if "application/ld+json" in content:
-        return re.sub(
-            r'  <script type="application/ld\+json">.*?</script>',
-            LOCAL_BUSINESS_JSON,
-            content,
-            count=1,
-            flags=re.DOTALL,
-        )
+def add_json_ld(content, basename):
+    if basename == "index.html":
+        block = build_local_business_json()
+    elif basename == "o-nama.html":
+        block = build_about_json_ld()
+    elif basename == "gdje-smo.html":
+        block = build_location_json_ld()
+    else:
+        return content
+
+    if JSON_LD_RE.search(content):
+        return JSON_LD_RE.sub(block, content, count=1)
     return content.replace(
         '  <link rel="stylesheet" href="css/site.css">',
-        LOCAL_BUSINESS_JSON + '\n  <link rel="stylesheet" href="css/site.css">',
+        block + '\n  <link rel="stylesheet" href="css/site.css">',
     )
 
 
@@ -372,14 +474,13 @@ def fix_h2(content, h2_text):
 
 
 def fix_homepage_hero(content):
-    """Keep the homepage hero as real HTML text matching the original design."""
-    hero_block = """        <h1 class="node-title">Trebate pouzdan servis računala ili laptopa?</h1>
+    """Keep homepage hero copy; contact block is maintained by upgrade-site.py."""
+    hero_body = build_homepage_hero_body()
+    hero_block = f"""        <h1 class="node-title">Trebate pouzdan servis računala ili laptopa?</h1>
     
   
   <div class="content">
-    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even"><p>Usluge popravka računala i laptopa su naša specijalnost. Vaše računalo će raditi brzo i stabilno.</p>
-<p class="hero-mail-label"><strong>Pošaljite nam mail na</strong></p>
-<p class="hero-mail"><!--email_off--><a href="mailto:nenad@arabba.hr">nenad@arabba.hr</a><!--/email_off--></p>
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even">{hero_body}
 </div></div></div>  </div>"""
 
     pattern = re.compile(
@@ -449,7 +550,10 @@ def process_file(path):
     if basename == "index.html":
         content = fix_homepage_hero(content)
         content = fix_index_image_alts(content)
-        content = add_json_ld(content)
+        content = add_json_ld(content, basename)
+
+    if basename in ("o-nama.html", "gdje-smo.html"):
+        content = add_json_ld(content, basename)
 
     if seo.get("add_brand_links"):
         content = add_brand_links_body(content)

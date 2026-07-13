@@ -25,35 +25,60 @@
   <meta name="twitter:image" content="https://arabba.hr/images/og-share.png">
   <meta name="twitter:image:alt" content="ARABBA d.o.o., servis računala i laptopa, Rijeka">
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ComputerRepair",
-    "name": "ARABBA d.o.o.",
-    "description": "Servis računala i laptopa u Rijeci: PC i Mac. Dijagnostika, popravak, čišćenje virusa i spašavanje podataka.",
-    "url": "https://arabba.hr/index.html",
-    "logo": "https://arabba.hr/images/logo.png",
-    "image": "https://arabba.hr/images/logo.png",
-    "telephone": ["+38551642291", "+38598257032"],
-    "email": "nenad@arabba.hr",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Crnčićeva 4",
-      "addressLocality": "Rijeka",
-      "postalCode": "51000",
-      "addressCountry": "HR"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 45.342448,
-      "longitude": 14.399686
-    },
-    "areaServed": {
-      "@type": "City",
-      "name": "Rijeka"
-    },
-    "foundingDate": "1995",
-    "priceRange": "$$"
+{
+  "@context": "https://schema.org",
+  "@type": "ComputerRepair",
+  "name": "ARABBA d.o.o.",
+  "description": "Servis računala i laptopa u Rijeci: PC i Mac. Dijagnostika, popravak, čišćenje virusa i spašavanje podataka.",
+  "url": "https://arabba.hr/index.html",
+  "logo": "https://arabba.hr/images/logo.png",
+  "image": "https://arabba.hr/images/logo.png",
+  "telephone": "+38598257032",
+  "email": "nenad@arabba.hr",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Crnčićeva 4",
+    "addressLocality": "Rijeka",
+    "postalCode": "51000",
+    "addressCountry": "HR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 45.342448,
+    "longitude": 14.399686
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Rijeka"
+  },
+  "foundingDate": "1995",
+  "priceRange": "$$",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "08:00",
+      "closes": "16:00"
+    }
+  ],
+  "sameAs": [
+    "https://www.google.com/maps/search/?api=1&query=Crn%C4%8Di%C4%87eva+4,+51000+Rijeka",
+    "https://www.linkedin.com/in/nenad-blazekovic-814390123/"
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": 4.4,
+    "reviewCount": 43,
+    "bestRating": 5,
+    "worstRating": 1
   }
+}
   </script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-G2D67EE1TR"></script>
@@ -64,9 +89,39 @@
 
     gtag('config', 'G-G2D67EE1TR');
   </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.service-faq .faq-item h3').forEach(function(h) {
+        h.addEventListener('click', function() {
+          if (typeof gtag === 'function') gtag('event', 'faq_opened', {question: h.textContent.trim()});
+        });
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.service-faq .faq-item h3').forEach(function(h) {
+        h.addEventListener('click', function() {
+          if (typeof gtag === 'function') gtag('event', 'faq_opened', {question: h.textContent.trim()});
+        });
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.service-faq .faq-item h3').forEach(function(h) {
+        h.addEventListener('click', function() {
+          if (typeof gtag === 'function') gtag('event', 'faq_opened', {question: h.textContent.trim()});
+        });
+      });
+    });
+  </script>
   <link rel="stylesheet" href="css/site.css">
 </head>
 <body class="front">
+<div id="skip-link"><a href="#main-content" class="element-invisible element-focusable">Preskoči na sadržaj</a></div>
+<div id="skip-link"><a href="#main-content" class="element-invisible element-focusable">Preskoči na sadržaj</a></div>
+<div id="skip-link"><a href="#main-content" class="element-invisible element-focusable">Preskoči na sadržaj</a></div>
     <div class="page clearfix" id="page">
       <header id="section-header" class="section section-header">
   <div id="zone-branding-wrapper" class="zone-wrapper zone-branding-wrapper clearfix">  
@@ -141,8 +196,9 @@
   
   <div class="content">
     <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even"><p>Usluge popravka računala i laptopa su naša specijalnost. Vaše računalo će raditi brzo i stabilno.</p>
-<p class="hero-mail-label"><strong>Pošaljite nam mail na</strong></p>
-<p class="hero-mail"><!--email_off--><a href="mailto:nenad@arabba.hr">nenad@arabba.hr</a><!--/email_off--></p>
+<a href="tel:+38598257032" class="hero-phone-primary" data-track="phone">098 257 032</a>
+<span class="messenger-links"><a href="https://wa.me/38598257032" class="messenger-link messenger-whatsapp" data-track="whatsapp" aria-label="Pošaljite WhatsApp poruku"><img src="images/icon-whatsapp.svg" width="28" height="28" alt="" role="presentation"><span>WhatsApp</span></a><a href="viber://chat?number=38598257032" class="messenger-link messenger-viber" data-track="viber" aria-label="Pošaljite Viber poruku"><img src="images/icon-viber.svg" width="28" height="28" alt="" role="presentation"><span>Viber</span></a></span>
+<span class="hero-email-secondary"><!--email_off--><a href="mailto:nenad@arabba.hr" data-track="email">nenad@arabba.hr</a><!--/email_off--></span>
 </div></div></div>  </div>
 
   
@@ -155,13 +211,6 @@
                 
     <div class="content clearfix">
       <p><a  href="gdje-smo.html"><img src="images/comp-arrow.png" alt="Gdje smo, lokacija servisa ARABBA u Rijeci" style="width: 92px; height: 92px; "></a></p>
-    </div>
-  </div>
-</div><div class="block block-block block-6 block-block-6 odd block-without-title" id="block-block-6">
-  <div class="block-inner clearfix">
-                
-    <div class="content clearfix">
-      <p><span class="form-second-row"><strong>ili nas nazovite na</strong></span> <span class="form-third-row phone-numbers"><span class="phone-line"><span class="phone-label">Mobitel:</span> <a href="tel:+38598257032">098 257 032</a></span><span class="phone-line"><span class="phone-label">Fiksni:</span> <a href="tel:+38551642291">051 642 291</a></span></span> <span class="messenger-links"><a href="https://wa.me/38598257032" class="messenger-link messenger-whatsapp" aria-label="Pošaljite WhatsApp poruku"><img src="images/icon-whatsapp.svg" width="28" height="28" alt=""><span>WhatsApp</span></a><a href="viber://chat?number=38598257032" class="messenger-link messenger-viber" aria-label="Pošaljite Viber poruku"><img src="images/icon-viber.svg" width="28" height="28" alt=""><span>Viber</span></a></span></p>
     </div>
   </div>
 </div>  </div>
@@ -211,7 +260,7 @@
       
   <div class="views-field views-field-field-slika">        <div class="field-content"><img src="images/os.png" width="350" height="350" alt="Instalacija operativnih sustava Windows, Linux i Mac OS"></div>  </div>  
   <div class="views-field views-field-body">        <div class="field-content"><h2>Instalacija i reinstalacija Windows-a, Linux-a i Mac OSX-a</h2>
-<p>Usluga se sastoji od instalacije operativnog sustava Windows (Win 8, Win7, Vista,XP i serverskih operativnih sustava: Win Server 2003, Win Server 2008) na vaše računalo, sa Vašom licencom, kao i instalacije svih drivera potrebnih za ispravan rad računala (ako nemate CD sa driverima mi ćemo to riješiti). Ako treba sačuvati već instalirane programe na postojećoj instalaciji, radimo tzv. reinstalaciju - popravak Windowsa!  Prema zahtjevima instaliramo i LINUX u raznim distribucijama, a radimo i instalaciju MAC OSX-a.</p>
+<p>Usluga uključuje instalaciju ili reinstalaciju Windowsa (Windows 10 i 11) na vaše računalo, sa Vašom licencom, kao i instalacije svih drivera potrebnih za ispravan rad računala (ako nemate CD sa driverima mi ćemo to riješiti). Ako treba sačuvati već instalirane programe na postojećoj instalaciji, radimo tzv. reinstalaciju - popravak Windowsa!  Prema zahtjevima instaliramo i LINUX u raznim distribucijama, a radimo i instalaciju MAC OSX-a.</p>
 </div>  </div>  </div>
   <div class="views-row views-row-6 views-row-even views-row-last">
       
@@ -231,7 +280,30 @@
 </div>      </div>
 </div>  </div>
 </div></section>    
-  
+
+<section class="front-proof-strip" aria-labelledby="front-proof-heading">
+  <div class="front-proof-inner container-12">
+    <h2 id="front-proof-heading" class="front-proof-title">Iskustva korisnika</h2>
+    <div class="google-reviews-badge" id="google-reviews-badge" hidden></div>
+    <div class="front-testimonial-wrap">
+      <div class="block block-views block-views-testimonial-block-front" id="block-views-testimonial-block-front">
+        <div class="block-inner clearfix">
+          <div class="content clearfix">
+            <div class="view view-testimonial view-id-testimonial">
+              <div class="view-content">
+                <div class="views-row">
+                  <div class="views-field views-field-body"><div class="field-content"><p></p></div></div>
+                  <div class="views-field views-field-title"><span class="field-content"></span></div>
+                  <div class="views-field views-field-field-company-link"><div class="field-content"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
       <footer id="section-footer" class="section section-footer">
   <div id="zone-footer-wrapper" class="zone-wrapper zone-footer-wrapper clearfix">  
   <div id="zone-footer" class="zone zone-footer clearfix container-12">
@@ -246,7 +318,7 @@
       </div>
       <div class="contact-strip-item contact-strip-phone">
         <strong>Telefon</strong>
-        <span class="contact-strip-phones"><a href="tel:+38551642291">051 642 291</a><br><a href="tel:+38598257032">098 257 032</a></span>
+        <span class="contact-strip-phones"><a href="tel:+38598257032">098 257 032</a></span>
         <span class="contact-strip-messengers">
           <a href="https://wa.me/38598257032" class="messenger-link messenger-whatsapp" aria-label="WhatsApp poruka"><img src="images/icon-whatsapp.svg" width="20" height="20" alt=""><span>WhatsApp</span></a>
           <a href="viber://chat?number=38598257032" class="messenger-link messenger-viber" aria-label="Viber poruka"><img src="images/icon-viber.svg" width="20" height="20" alt=""><span>Viber</span></a>
@@ -314,5 +386,7 @@
 </div>  </div>
 </div></footer>  </div>
 <a href="tel:+38598257032" class="sticky-call-btn" aria-label="Nazovite nas"><span class="sticky-call-label">Nazovite</span><span class="sticky-call-number">098 257 032</span></a>
+  <script src="js/site.js" defer></script>
+  <script src="js/testimonials.js" defer></script>
 </body>
 </html>
