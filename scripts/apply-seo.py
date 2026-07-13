@@ -496,11 +496,7 @@ def fix_h2(content, h2_text):
 
 def fix_homepage_hero(content):
     """Keep homepage hero copy; contact block is maintained by upgrade-site.py."""
-    reviews = load_google_reviews()
     hero_body = build_homepage_hero_body()
-    compact = build_google_reviews_badge(reviews, compact=True)
-    if compact:
-        hero_body += "\n" + compact
     hero_block = f"""        <h1 class="node-title">Trebate pouzdan servis računala ili laptopa?</h1>
     
   
