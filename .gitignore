@@ -1,3 +1,5 @@
 .DS_Store
 Thumbs.db
 *.log
+scripts/deploy-webhook.env
+scripts/logs/

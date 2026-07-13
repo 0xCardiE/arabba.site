@@ -1,0 +1,15 @@
+[Unit]
+Description=Arabba GitHub Deploy Webhook
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/var/www/arabba
+EnvironmentFile=-/var/www/arabba/scripts/deploy-webhook.env
+ExecStart=/root/.nvm/versions/node/v22.14.0/bin/node /var/www/arabba/scripts/github-deploy-webhook.js
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
