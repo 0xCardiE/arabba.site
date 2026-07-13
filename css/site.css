@@ -166,5 +166,9 @@ h1#page-title{margin-bottom:1.25rem;}
 @media (prefers-reduced-motion:reduce){#block-views-testimonial-block .view-content,#block-views-testimonial-block-front .view-content{transition:none;}.hero-phone-primary{transition:none;}}
 a:focus-visible,.hero-phone-primary:focus-visible,.messenger-link:focus-visible,.sticky-call-btn:focus-visible,.google-reviews-link:focus-visible{outline:3px solid #0062A0;outline-offset:3px;}
 @media only screen and (max-width:479px){.hero-phone-primary{font-size:28px;padding:12px 22px;}}
+.hero-google-rating{margin:18px 0 0;font-size:14px;text-align:center;line-height:1.5;}
+.hero-google-rating a{color:#555 !important;text-decoration:none;display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center;}
+.hero-google-rating a:hover{color:#FD6931 !important;}
+.hero-google-rating .google-reviews-stars{color:#f5a623;font-size:16px;letter-spacing:1px;}
 @media only screen and (max-width:980px){.front-proof-strip{padding:28px 16px 36px;}}
 

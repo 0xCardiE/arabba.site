@@ -19,6 +19,7 @@ from site_shared import (
     MAPS_URL,
     MOBILE_TEL,
     OPENING_HOURS,
+    build_google_reviews_badge,
     build_homepage_hero_body,
 )
 
@@ -462,6 +463,26 @@ def fix_index_image_alts(content):
     return content
 
 
+GOOGLE_REVIEWS_BADGE_RE = re.compile(
+    r'<div class="google-reviews-badge" id="google-reviews-badge"[^>]*>.*?</div>',
+    re.DOTALL,
+)
+
+
+def fix_google_reviews_badge(content):
+    reviews = load_google_reviews()
+    badge = build_google_reviews_badge(reviews)
+    if not badge:
+        return content
+    if GOOGLE_REVIEWS_BADGE_RE.search(content):
+        return GOOGLE_REVIEWS_BADGE_RE.sub(badge, content, count=1)
+    return content.replace(
+        '<div class="google-reviews-badge" id="google-reviews-badge" hidden></div>',
+        badge,
+        1,
+    )
+
+
 def fix_h2(content, h2_text):
     if not h2_text:
         return content
@@ -475,7 +496,11 @@ def fix_h2(content, h2_text):
 
 def fix_homepage_hero(content):
     """Keep homepage hero copy; contact block is maintained by upgrade-site.py."""
+    reviews = load_google_reviews()
     hero_body = build_homepage_hero_body()
+    compact = build_google_reviews_badge(reviews, compact=True)
+    if compact:
+        hero_body += "\n" + compact
     hero_block = f"""        <h1 class="node-title">Trebate pouzdan servis računala ili laptopa?</h1>
     
   
@@ -550,6 +575,7 @@ def process_file(path):
     if basename == "index.html":
         content = fix_homepage_hero(content)
         content = fix_index_image_alts(content)
+        content = fix_google_reviews_badge(content)
         content = add_json_ld(content, basename)
 
     if basename in ("o-nama.html", "gdje-smo.html"):

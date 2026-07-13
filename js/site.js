@@ -55,7 +55,7 @@
 
   function initGoogleReviews() {
     var badge = document.getElementById('google-reviews-badge');
-    if (!badge) return;
+    if (!badge || badge.querySelector('.google-reviews-link')) return;
 
     fetch('data/google-reviews.json', { cache: 'no-cache' })
       .then(function (r) { return r.ok ? r.json() : null; })

@@ -68,3 +68,37 @@ def build_homepage_hero_body():
 
 def build_footer_phones():
     return f'<a href="tel:{MOBILE_TEL}">{MOBILE_DISPLAY}</a>'
+
+
+def render_stars_html(rating):
+    full = min(5, max(0, int(round(float(rating)))))
+    html = '<span class="star star-full" aria-hidden="true">★</span>' * full
+    html += '<span class="star star-empty" aria-hidden="true">☆</span>' * (5 - full)
+    return html
+
+
+def build_google_reviews_badge(reviews, *, compact=False):
+    rating = reviews.get("rating")
+    count = reviews.get("reviewCount")
+    if rating is None or count is None:
+        return ""
+    url = reviews.get("googleMapsUrl") or MAPS_URL
+    rating_str = f"{float(rating):.1f}".replace(".", ",")
+    stars = render_stars_html(float(rating))
+    label = f"<strong>{rating_str}/5</strong> · {count} Google recenzija"
+    if compact:
+        return (
+            f'<p class="hero-google-rating">'
+            f'<a href="{url}" target="_blank" rel="noopener noreferrer" data-track="google_reviews">'
+            f'<span class="google-reviews-stars" aria-hidden="true">{stars}</span> '
+            f"{label}</a></p>"
+        )
+    return (
+        f'<div class="google-reviews-badge" id="google-reviews-badge">\n'
+        f'  <a class="google-reviews-link" href="{url}" target="_blank" rel="noopener noreferrer" '
+        f'data-track="google_reviews">\n'
+        f'    <span class="google-reviews-stars" aria-hidden="true">{stars}</span>\n'
+        f'    <span class="google-reviews-text">{label}</span>\n'
+        f"  </a>\n"
+        f"</div>"
+    )

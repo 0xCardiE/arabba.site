@@ -116,6 +116,15 @@
       });
     });
   </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.service-faq .faq-item h3').forEach(function(h) {
+        h.addEventListener('click', function() {
+          if (typeof gtag === 'function') gtag('event', 'faq_opened', {question: h.textContent.trim()});
+        });
+      });
+    });
+  </script>
   <link rel="stylesheet" href="css/site.css">
 </head>
 <body class="front">
@@ -199,6 +208,7 @@
 <a href="tel:+38598257032" class="hero-phone-primary" data-track="phone">098 257 032</a>
 <span class="messenger-links"><a href="https://wa.me/38598257032" class="messenger-link messenger-whatsapp" data-track="whatsapp" aria-label="Pošaljite WhatsApp poruku"><img src="images/icon-whatsapp.svg" width="28" height="28" alt="" role="presentation"><span>WhatsApp</span></a><a href="viber://chat?number=38598257032" class="messenger-link messenger-viber" data-track="viber" aria-label="Pošaljite Viber poruku"><img src="images/icon-viber.svg" width="28" height="28" alt="" role="presentation"><span>Viber</span></a></span>
 <span class="hero-email-secondary"><!--email_off--><a href="mailto:nenad@arabba.hr" data-track="email">nenad@arabba.hr</a><!--/email_off--></span>
+<p class="hero-google-rating"><a href="https://www.google.com/maps/search/?api=1&query=Crn%C4%8Di%C4%87eva+4,+51000+Rijeka" target="_blank" rel="noopener noreferrer" data-track="google_reviews"><span class="google-reviews-stars" aria-hidden="true"><span class="star star-full" aria-hidden="true">★</span><span class="star star-full" aria-hidden="true">★</span><span class="star star-full" aria-hidden="true">★</span><span class="star star-full" aria-hidden="true">★</span><span class="star star-empty" aria-hidden="true">☆</span></span> <strong>4,4/5</strong> · 43 Google recenzija</a></p>
 </div></div></div>  </div>
 
   
@@ -284,7 +294,12 @@
 <section class="front-proof-strip" aria-labelledby="front-proof-heading">
   <div class="front-proof-inner container-12">
     <h2 id="front-proof-heading" class="front-proof-title">Iskustva korisnika</h2>
-    <div class="google-reviews-badge" id="google-reviews-badge" hidden></div>
+    <div class="google-reviews-badge" id="google-reviews-badge">
+  <a class="google-reviews-link" href="https://www.google.com/maps/search/?api=1&query=Crn%C4%8Di%C4%87eva+4,+51000+Rijeka" target="_blank" rel="noopener noreferrer" data-track="google_reviews">
+    <span class="google-reviews-stars" aria-hidden="true"><span class="star star-full" aria-hidden="true">★</span><span class="star star-full" aria-hidden="true">★</span><span class="star star-full" aria-hidden="true">★</span><span class="star star-full" aria-hidden="true">★</span><span class="star star-empty" aria-hidden="true">☆</span></span>
+    <span class="google-reviews-text"><strong>4,4/5</strong> · 43 Google recenzija</span>
+  </a>
+</div>
     <div class="front-testimonial-wrap">
       <div class="block block-views block-views-testimonial-block-front" id="block-views-testimonial-block-front">
         <div class="block-inner clearfix">
